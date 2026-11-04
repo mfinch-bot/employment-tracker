@@ -8,6 +8,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  actions: write
 concurrency:
   group: release
   cancel-in-progress: false
@@ -31,12 +32,8 @@ jobs:
       - id: deploy
         continue-on-error: true
         uses: actions/deploy-pages@v4
-      - name: Aguarda publicacao em andamento
-        if: steps.deploy.outcome == 'failure'
-        run: sleep 45
-      - name: Publica de novo
-        if: steps.deploy.outcome == 'failure'
-        uses: actions/deploy-pages@v4
+        with:
+          timeout: 180000
       - name: Guarda os dados
         run: |
           git config user.name "employment-bot"
@@ -45,3 +42,10 @@ jobs:
           git commit -m "JOLTS" || exit 0
           git pull --rebase origin main
           git push
+      - name: Se a publicacao falhou, tenta de novo com outro commit
+        if: steps.deploy.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then exit 1; fi
+          gh workflow run jolts.yml --ref main

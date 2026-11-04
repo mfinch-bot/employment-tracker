@@ -37,12 +37,10 @@ def parse_report(text_post, pdf_text):
     """Devolve mes (AAAA-MM), cortes, contratacoes e governo. Levanta erro se algo nao fechar."""
     plain = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", text_post)))
     m = re.search(r"announced ([\d,]+) job cuts in ([A-Z][a-z]+)", plain)
-    h = re.search(r"plans to hire ([\d,]+) workers in ([A-Z][a-z]+)", plain)
-    if not m or not h:
+    if not m:
         raise ValueError("texto do relatorio fora do padrao")
     cuts_post, month = num(m.group(1)), m.group(2)
-    hire_post = num(h.group(1))
-    if month not in MONTH_NAMES or h.group(2) != month:
+    if month not in MONTH_NAMES:
         raise ValueError("mes do relatorio nao identificado")
     five = re.findall(r"(?m)^TOTAL\s+([\d,]+)\s+([\d,]+)\s+([\d,]+)\s+([\d,]+)\s+([\d,]+)\s*$", pdf_text)
     if not five:
@@ -54,10 +52,19 @@ def parse_report(text_post, pdf_text):
     if not gov:
         raise ValueError("linha de Government nao encontrada")
     gov_m = num(gov[0][2])
-    hires = [num(a) for a, b, c in re.findall(r"(?m)^TOTAL\s+([\d,]+)\s+([\d,]+)\s+([\d,]+)\s*$", pdf_text)]
-    if hire_post not in hires:
-        raise ValueError(f"contratacoes nao batem: {hire_post} x {hires}")
-    return month, cuts, hire_post, gov_m
+    # O texto nem sempre traz a contratacao na mesma frase: a fonte e a ultima tabela do PDF
+    # (mes, acumulado do ano, acumulado do ano anterior), conferida com o acumulado da tabela anual.
+    hires = re.findall(r"(?m)^TOTAL\s+([\d,]+)\s+([\d,]+)\s+([\d,]+)\s*$", pdf_text)
+    annual = re.findall(r"(?m)^TOTAL\s+([\d,]+)(?:\s+[\d,]+){5,}\s*$", pdf_text)
+    if not hires or not annual:
+        raise ValueError("tabela de contratacoes nao encontrada")
+    hire, hire_ytd = num(hires[-1][0]), num(hires[-1][1])
+    if hire_ytd != num(annual[-1]):
+        raise ValueError(f"contratacoes nao batem: {hire_ytd} x {annual[-1]}")
+    h = re.search(r"plans to hire ([\d,]+) workers in " + month, plain)
+    if h and num(h.group(1)) != hire:
+        raise ValueError(f"contratacoes nao batem com o texto: {hire} x {h.group(1)}")
+    return month, cuts, hire, gov_m
 
 
 def pdf_text(url):

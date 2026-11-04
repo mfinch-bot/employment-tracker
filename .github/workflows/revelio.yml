@@ -1,0 +1,72 @@
+name: revelio
+on:
+  schedule:
+    # 7:05 e 8:05 ET no horario de verao; no de inverno, 7:05 ET e o primeiro
+    - cron: "5 11 * * 1-5"
+    - cron: "5 12 * * 1-5"
+    - cron: "5 13 * * 1-5"
+    # Rodadas de seguranca
+    - cron: "45 14 * * 1-5"
+    - cron: "45 17 * * 1-5"
+  push:
+    branches: [main]
+    paths: ["scripts/revelio*", ".github/workflows/revelio.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  actions: write
+concurrency:
+  group: revelio
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 170
+    environment:
+      name: github-pages
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - run: pip install -q pypdf
+      - id: run
+        name: Consulta o Revelio e monta a pagina
+        env:
+          BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            python3 scripts/revelio.py --watch
+          else
+            python3 scripts/revelio.py --once --force
+            python3 scripts/challenger.py --once --force
+            python3 scripts/adp.py --once --force
+            python3 scripts/jolts.py
+          fi
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.run.outputs.changed == 'true'
+        with:
+          path: docs
+      - id: deploy
+        if: steps.run.outputs.changed == 'true'
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+        with:
+          timeout: 180000
+      - name: Guarda os dados
+        if: steps.run.outputs.changed == 'true'
+        run: |
+          git config user.name "employment-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data docs
+          git commit -m "Revelio $(python3 -c "import json;print(json.load(open('docs/state_revelio.json'))['as_of'])")" || exit 0
+          git pull --rebase origin main
+          git push
+      - name: Se a publicacao falhou, tenta de novo com outro commit
+        if: steps.run.outputs.changed == 'true' && steps.deploy.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then exit 1; fi
+          gh workflow run revelio.yml --ref main

@@ -24,7 +24,7 @@ footer{margin-top:24px;padding-top:8px;border-top:1px solid var(--line);font-siz
 @media(max-width:760px){.grid{grid-template-columns:1fr}.chart,.c.full .chart{height:300px}td,th{padding:3px 6px;font-size:12px}}
 @media print{.chart{break-inside:avoid}.c{break-inside:avoid}header{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 </style></head><body><main>
-<header><h1>Employment Situation Summary</h1><p>Latest data: Sep-26 · Atualizado em 04/11/2026 15:06 (Brasília)</p></header>
+<header><h1>Employment Situation Summary</h1><p>Latest data: Sep-26 · Atualizado em 04/11/2026 15:09 (Brasília)</p></header>
 <div id="wait" hidden>Aguardando o release novo. Os dados abaixo são de Sep-26.</div>
 <div class="tw"><table class="t1"><thead><tr><th></th><th>Sep-25</th><th>Jul-26</th><th>Aug-26</th><th>Sep-26</th><th>Today - Feb 2020</th></tr></thead><tbody><tr class="grp"><td>Employment status</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Participation Rate</td><td>62.5</td><td>61.4</td><td>61.6</td><td>61.8</td><td>-1.5</td></tr><tr><td>Unemployment rate</td><td>4.44</td><td>4.09</td><td>4.14</td><td class=hi>4.18</td><td>0.68</td></tr><tr><td>Employment-population ratio</td><td>59.7</td><td>58.9</td><td>59.1</td><td>59.2</td><td>-1.9</td></tr><tr class="grp"><td>Unemployment rates</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>U1 - Unemployed 15 weeks or longer</td><td>1.8</td><td>1.7</td><td>1.8</td><td>1.8</td><td>0.6</td></tr><tr><td>U2 - Job losers &amp; completed temporary jobs</td><td>2.1</td><td>2.0</td><td>1.9</td><td>1.9</td><td>0.3</td></tr><tr><td>U4 - Unemployed + discouraged workers</td><td>4.7</td><td>4.4</td><td>4.4</td><td>4.4</td><td>0.7</td></tr><tr><td>U5 - Unemployed, discouraged, marginally attached</td><td>5.4</td><td>5.1</td><td>5.1</td><td>5.0</td><td>0.6</td></tr><tr><td>U6 - Unemployed, marginally attached, part-time</td><td>8.1</td><td>7.9</td><td>7.7</td><td>7.6</td><td>0.6</td></tr><tr class="grp"><td>Age</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>16-24</td><td>10.4</td><td>8.5</td><td>9.1</td><td>9.9</td><td>2.1</td></tr><tr><td>25-54</td><td>3.7</td><td>3.6</td><td>3.6</td><td>3.6</td><td>0.6</td></tr><tr><td>55+</td><td>3.2</td><td>3.1</td><td>3.0</td><td>2.6</td><td>0.0</td></tr></tbody></table></div>
 <div class="grid" id="grid"></div>
@@ -86,7 +86,7 @@ function build(ch){
       symbol:'circle',symbolSize:mark?7:1,showSymbol:true,showAllSymbol:true,
       lineStyle:{color:col,width:s.width||2.25,type:DASH[s.dash]||'solid'},itemStyle:{color:col},z:s.labels.length?4:3}
   });
-  return{animation:false,grid:{left:ch.horizontal?150:44,right:ch.axes.length>1?52:44,top:18,bottom:legend.length?(ch.date?(n>30?76:72):(n>12?64:52)):(ch.date?(n>30?54:48):(n>12?44:30)),containLabel:false},
+  return{animation:false,grid:{left:ch.horizontal?205:44,right:ch.axes.length>1?52:44,top:18,bottom:legend.length?(ch.date?(n>30?76:72):(n===11?92:n>12?64:52)):(ch.date?(n>30?54:48):(n>12?44:30)),containLabel:false},
     legend:legend.length?{data:legend,bottom:0,itemWidth:22,itemHeight:8,icon:undefined,textStyle:{color:'#153D64',fontSize:11}}:undefined,
     tooltip:{trigger:'axis',valueFormatter:v=>v==null?'':(Math.abs(v)<1&&ch.axes[0].fmt&&ch.axes[0].fmt.includes('%')?(v*100).toFixed(2)+'%':(Math.abs(v)<100?Number(v).toFixed(2):Math.round(v)))},
     xAxis:ch.horizontal?{...axes[0],position:'top'}:cat,yAxis:ch.horizontal?cat:axes,series}

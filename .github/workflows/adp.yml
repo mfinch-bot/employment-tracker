@@ -44,16 +44,28 @@ jobs:
         if: steps.run.outputs.changed == 'true'
         with:
           path: docs
+      - id: ver
+        run: |
+          echo "a=$(date +%s%N | sha1sum | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+          echo "b=$(date +%s%N | rev | sha1sum | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
       - id: deploy
         if: steps.run.outputs.changed == 'true'
         continue-on-error: true
         uses: actions/deploy-pages@v4
+        env:
+          GITHUB_SHA: ${{ steps.ver.outputs.a }}
+        with:
+          timeout: 180000
       - name: Aguarda publicacao em andamento
         if: steps.run.outputs.changed == 'true' && steps.deploy.outcome == 'failure'
         run: sleep 45
       - name: Publica de novo
         if: steps.run.outputs.changed == 'true' && steps.deploy.outcome == 'failure'
         uses: actions/deploy-pages@v4
+        env:
+          GITHUB_SHA: ${{ steps.ver.outputs.b }}
+        with:
+          timeout: 300000
       - name: Guarda os dados
         if: steps.run.outputs.changed == 'true'
         run: |

@@ -150,7 +150,7 @@ def fill_template(title, page_id, state_file, table1, table2, as_of, published, 
     table1_html = f'<div class="tw" data-title="{title}">{table1}</div>' if table1 else ""
     table2_html = f'<div class="tw" data-title="MoM Growth of Wages">{table2}</div>' if table2 else ""
     return (tpl.replace("__TITLE__", title).replace("__PAGE__", page_id).replace("__STATE__", state_file)
-            .replace("__SOURCE__", {"adp": "ADP", "challenger": "Challenger, Gray & Christmas"}.get(page_id, "BLS"))
+            .replace("__SOURCE__", {"adp": "ADP", "challenger": "Challenger, Gray & Christmas", "revelio": "Revelio Labs"}.get(page_id, "BLS"))
             .replace("__TABLE1BLOCK__", table1_html).replace("__TABLE2BLOCK__", table2_html)
             .replace("__ASOF__", month_label(as_of)).replace("__ASOFKEY__", as_of)
             .replace("__PUBLISHED__", published.strftime("%d/%m/%Y %H:%M"))

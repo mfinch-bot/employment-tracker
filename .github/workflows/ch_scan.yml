@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
-      - run: pip install -q pypdf
+      - run: pip install -q pypdf pdfplumber
       - run: python3 tools/ch_scan.py
       - run: |
           git config user.name "employment-bot"

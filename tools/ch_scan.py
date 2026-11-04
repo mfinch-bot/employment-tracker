@@ -27,10 +27,14 @@ for page in (1, 2, 3):
                 txt = pg.extract_text() or ""
                 if "JOB CUTS BY INDUSTRY" not in txt.upper():
                     continue
-                lines = {}
-                for a in w:
-                    lines.setdefault(round(a["top"] / 3), []).append([round(a["x0"], 1), round(a["x1"], 1), a["text"]])
-                rows = [sorted(v) for k, v in sorted(lines.items())]
+                rows, cur, last = [], [], None
+                for a in sorted(w, key=lambda a: a["top"]):
+                    if last is not None and a["top"] - last > 3:
+                        rows.append(sorted(cur))
+                        cur = []
+                    cur.append([round(a["x0"], 1), round(a["x1"], 1), a["text"]])
+                    last = a["top"]
+                rows.append(sorted(cur))
                 break
         out.append({"date": p["date_gmt"][:10], "pdf": l[0], "text": t, "rows": rows})
 pathlib.Path("data/ch_scan.json").write_text(json.dumps(out))

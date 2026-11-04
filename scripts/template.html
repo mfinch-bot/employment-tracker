@@ -20,15 +20,19 @@ table.t2{width:min(720px,100%)}table.t2 tbody tr:nth-child(even) td{background:v
 h2{margin:0 0 2px;text-align:center;color:var(--navy);font-size:17px;font-weight:700}.c:not(.full) h2{font-size:15px}
 .sub{margin:0;text-align:center;color:var(--navy);font-weight:700;font-size:13px}
 #wait{margin-top:10px;padding:8px 12px;background:#FFF4CC;border:1px solid #E0C050;text-align:center;font-weight:700}
+.act{display:flex;justify-content:flex-end;gap:6px;margin:2px 0 4px}.act.tb{max-width:720px;margin:0 auto 6px}
+.act button{font:11px Aptos,Calibri,Arial,sans-serif;color:#12161b;background:#fcfcfb;border:1px solid #c2c6cb;border-radius:3px;padding:3px 8px;cursor:pointer}
+.act button:hover{background:#eef2f6}.act button.ok{background:#DCE9F7;border-color:#153D64}
+@media print{.act{display:none}}
 footer{margin-top:24px;padding-top:8px;border-top:1px solid var(--line);font-size:12px;color:#595959}
 @media(max-width:760px){.grid{grid-template-columns:1fr}.chart,.c.full .chart{height:300px}td,th{padding:3px 6px;font-size:12px}}
 @media print{.chart{break-inside:avoid}.c{break-inside:avoid}header{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 </style></head><body><main>
 <header><h1>Employment Situation Summary</h1><p>Latest data: __ASOF__ · Atualizado em __PUBLISHED__ (Brasília)</p></header>
 <div id="wait" hidden>Aguardando o release novo. Os dados abaixo são de __ASOF__.</div>
-<div class="tw">__TABLE1__</div>
+<div class="tw" data-title="Employment Situation Summary">__TABLE1__</div>
 <div class="grid" id="grid"></div>
-<div class="tw">__TABLE2__</div>
+<div class="tw" data-title="MoM Growth of Wages">__TABLE2__</div>
 <footer>Fonte: BLS, Mar Asset Management</footer>
 </main>
 <script src="echarts.min.js"></script>
@@ -92,12 +96,54 @@ function build(ch){
     xAxis:ch.horizontal?{...axes[0],position:'top'}:cat,yAxis:ch.horizontal?cat:axes,series}
 }
 const grid=document.getElementById('grid'),insts=[];
+function actions(img,data,cls,imgLabel){
+  const w=document.createElement('div');w.className='act'+(cls?' '+cls:'');
+  const mk=(txt,fn)=>{const b=document.createElement('button');b.type='button';b.textContent=txt;
+    b.onclick=async()=>{let msg='Copiado';try{msg=await fn()||msg}catch(e){msg='Não copiou'}
+      b.textContent=msg;b.classList.add('ok');setTimeout(()=>{b.textContent=txt;b.classList.remove('ok')},1500)};return b};
+  w.append(mk(imgLabel||'Copiar gráfico',img),mk('Copiar dados',data));return w}
+async function copyCanvas(cv,name){
+  const blob=await new Promise(r=>cv.toBlob(r,'image/png'));
+  try{await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);return'Copiado'}
+  catch(e){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(name||'grafico').replace(/[^\w-]+/g,'_')+'.png';a.click();return'Baixado'}}
+function chartImage(c,inst){
+  return new Promise((res,rej)=>{const im=new Image();im.onload=async()=>{
+    const scale=2,head=(c.title[1]?54:32)*scale,cv=document.createElement('canvas');cv.width=im.width;cv.height=im.height+head;
+    const x=cv.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,cv.width,cv.height);x.textAlign='center';x.fillStyle='#153D64';
+    x.font='700 '+16*scale+'px Aptos,Calibri,Arial,sans-serif';x.fillText(c.title[0]||'',cv.width/2,22*scale);
+    if(c.title[1]){x.font='700 '+12*scale+'px Aptos,Calibri,Arial,sans-serif';x.fillText(c.title[1],cv.width/2,42*scale)}
+    x.drawImage(im,0,head);try{res(await copyCanvas(cv,c.title[0]))}catch(e){rej(e)}};im.onerror=rej;
+    im.src=inst.getDataURL({type:'png',pixelRatio:2,backgroundColor:'#fff'})})}
+function cellText(v,f){if(v==null)return'';if(typeof v!=='number')return String(v);
+  return f&&f.includes('%')?(v*100).toFixed(2)+'%':v.toFixed(2)}
+function chartData(c){
+  const sers=c.series.filter(s=>!['Band','Percentile 0.25 - 70s'].includes(s.name));
+  const head=[''].concat(sers.map(s=>s.name||c.title[0]));
+  const rows=(c.cats||[]).map((m,i)=>[m].concat(sers.map(s=>{const v=s.data[i];return cellText(v,ch_fmt(c,s))})));
+  return navigator.clipboard.writeText([head].concat(rows).map(r=>r.join('\t')).join('\n'))}
+function ch_fmt(c,s){return c.axes[s.yAxis||0].fmt}
+function tableRows(tb){return[...tb.querySelectorAll('tr')].map(tr=>[...tr.children].flatMap(td=>{const n=+td.getAttribute('colspan')||1;return[td.innerText.replace(/\s+/g,' ').trim(),...Array(n-1).fill('')]}))}
+async function tableImage(tb,title){
+  const r=tb.getBoundingClientRect(),s=2,top=0,cv=document.createElement('canvas');cv.width=r.width*s;cv.height=r.height*s;
+  const x=cv.getContext('2d');x.scale(s,s);x.fillStyle='#fff';x.fillRect(0,0,r.width,r.height);x.textBaseline='middle';
+  tb.querySelectorAll('th,td').forEach(td=>{const b=td.getBoundingClientRect(),st=getComputedStyle(td),X=b.left-r.left,Y=b.top-r.top;
+    if(st.backgroundColor!=='rgba(0, 0, 0, 0)'&&st.backgroundColor!=='transparent'){x.fillStyle=st.backgroundColor;x.fillRect(X,Y,b.width,b.height)}
+    x.fillStyle=st.color;x.font=st.fontStyle+' '+st.fontWeight+' '+st.fontSize+' '+st.fontFamily;x.textAlign=st.textAlign==='left'?'left':'center';
+    const txt=td.innerText.replace(/\s+/g,' ').trim();
+    const room=b.width-6,wid=x.measureText(txt).width;
+    if(wid>room)x.font=st.fontStyle+' '+st.fontWeight+' '+(parseFloat(st.fontSize)*room/wid)+'px '+st.fontFamily;
+    x.fillText(txt,st.textAlign==='left'?X+parseFloat(st.paddingLeft):X+b.width/2,Y+b.height/2)});
+  return copyCanvas(cv,title)}
+document.querySelectorAll('.tw').forEach(w=>{const tb=w.querySelector('table');
+  w.parentNode.insertBefore(actions(()=>tableImage(tb,w.dataset.title),()=>navigator.clipboard.writeText(tableRows(tb).map(r=>r.join('\t')).join('\n')),'tb','Copiar tabela'),w)});
 const rows={};CH.forEach(c=>{(rows[c.row]=rows[c.row]||[]).push(c)});
-CH.forEach(c=>{
+CH.forEach((c,idx)=>{
   const d=document.createElement('section');d.className='c'+(rows[c.row].length<2?' full':'');
   const h=document.createElement('h2');h.textContent=c.title[0]||'';d.appendChild(h);
   if(c.title[1]){const p=document.createElement('p');p.className='sub';p.textContent=c.title[1];d.appendChild(p)}
-  const e=document.createElement('div');e.className='chart';d.appendChild(e);grid.appendChild(d);
+  const e=document.createElement('div');e.className='chart';
+  d.appendChild(actions(()=>chartImage(c,insts[idx]),()=>chartData(c)));
+  d.appendChild(e);grid.appendChild(d);
   c._full=rows[c.row].length<2;
   const i=echarts.init(e,null,{renderer:'canvas'});i.setOption(build(c));insts.push(i)});
 addEventListener('resize',()=>insts.forEach(i=>i.resize()));

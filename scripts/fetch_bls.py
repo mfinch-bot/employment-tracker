@@ -29,9 +29,10 @@ def fetch_all(key):
     this_year = dt.datetime.now(dt.timezone.utc).year
     raw = {}
     for i in range(0, len(ids), 50):
-        out = post(ids[i:i + 50], FIRST_YEAR, this_year, key)
-        for s in out["Results"]["series"]:
-            pts = {}
+        chunks = [post(ids[i:i + 50], y, min(y + 19, this_year), key)
+                  for y in range(FIRST_YEAR, this_year + 1, 20)]  # limite de 20 anos por consulta
+        for s in (x for out in chunks for x in out["Results"]["series"]):
+            pts = raw.get(s["seriesID"], {})
             for p in s["data"]:
                 if p["period"].startswith("M") and p["period"] != "M13":
                     try:

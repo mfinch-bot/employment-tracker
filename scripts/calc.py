@@ -96,7 +96,10 @@ def build_grid(L, as_of):
              "L": "Professional And Business Services", "M": "Education and Health Services",
              "N": "Leisure and Hospitality", "O": "Other Services", "P": "Government",
              "Q": "Federal", "R": "State", "S": "Local"}
-    for c, n in names.items():
+    names_extra = {"BN": "Aggregate Weekly Payrolls", "BO": "Aggregate Weekly Payrolls (12M)",
+                   "BP": "Aggregate Weekly Payrolls (12M Pré Pandemia)",
+                   "BV": "Production and Nonsupervisory (6MMA)"}
+    for c, n in {**names, **names_extra}.items():
         setc(c, 6, n)
     # Niveis/taxas copiados da aba Bloomberg
     copies = {"CN": "AR", "CO": "AS", "CT": "AW", "CU": "AX", "CV": "AY", "CY": "BC", "CZ": "BD",

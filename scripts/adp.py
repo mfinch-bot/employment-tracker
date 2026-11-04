@@ -59,11 +59,14 @@ def latest_zip():
 
 
 def next_dates(info):
+    """Datas do relatorio mensal: a lista traz o mensal primeiro; depois do item vazio vem o semanal."""
     out = []
     for r in info.get("futureReports", []):
+        if not r.get("reportDate"):
+            break
         try:
             out.append(dt.datetime.strptime(r["reportDate"], "%B %d, %Y").date().isoformat())
-        except (KeyError, ValueError):
+        except ValueError:
             pass
     return sorted(out)
 

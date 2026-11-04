@@ -17,6 +17,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  actions: write
 concurrency:
   group: release
   cancel-in-progress: false
@@ -51,12 +52,8 @@ jobs:
         if: steps.run.outputs.changed == 'true'
         continue-on-error: true
         uses: actions/deploy-pages@v4
-      - name: Aguarda publicacao em andamento
-        if: steps.run.outputs.changed == 'true' && steps.deploy.outcome == 'failure'
-        run: sleep 45
-      - name: Publica de novo
-        if: steps.run.outputs.changed == 'true' && steps.deploy.outcome == 'failure'
-        uses: actions/deploy-pages@v4
+        with:
+          timeout: 180000
       - name: Guarda os dados
         if: steps.run.outputs.changed == 'true'
         run: |
@@ -66,3 +63,10 @@ jobs:
           git commit -m "Release $(python3 -c "import json;print(json.load(open('data/state.json'))['as_of'])")" || exit 0
           git pull --rebase origin main
           git push
+      - name: Se a publicacao falhou, tenta de novo com outro commit
+        if: steps.run.outputs.changed == 'true' && steps.deploy.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then exit 1; fi
+          gh workflow run release.yml --ref main

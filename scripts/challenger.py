@@ -14,6 +14,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 ET = ZoneInfo("America/New_York")
 BRT = ZoneInfo("America/Sao_Paulo")
 POSTS = "https://www.challengergray.com/wp-json/wp/v2/posts?categories=61&per_page=2&_fields=date_gmt,link,title,content"
+# Abr-24 corrigido em 04/11/2026: 64.789 (relatorios de mai-24 e mai-25), a base trazia o valor de abr-25
 MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
                "November", "December"]
 OFFICIAL = dt.time(7, 30)

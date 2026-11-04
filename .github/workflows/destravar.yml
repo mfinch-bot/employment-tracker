@@ -1,0 +1,21 @@
+name: destravar
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/destravar.yml"]
+permissions:
+  pages: write
+jobs:
+  cancel:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          R=${{ github.repository }}
+          for s in 16846b9d91071c8b4249c1ab6cf8c631575052b9; do
+            gh api repos/$R/pages/deployments/$s --jq '.status' || true
+            gh api -X POST repos/$R/pages/deployments/$s/cancel || true
+            sleep 5
+            gh api repos/$R/pages/deployments/$s --jq '.status' || true
+          done

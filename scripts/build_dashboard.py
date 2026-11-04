@@ -145,18 +145,24 @@ def table_wages(G, L, as_of):
             f'<tr><th>Sector</th><th>{month_label(as_of)}</th>{hd}</tr></thead><tbody>{"".join(rows)}</tbody></table>')
 
 
+def fill_template(title, page_id, state_file, table1, table2, as_of, published, payload):
+    tpl = (ROOT / "scripts/template.html").read_text(encoding="utf-8")
+    table2_html = f'<div class="tw" data-title="MoM Growth of Wages">{table2}</div>' if table2 else ""
+    return (tpl.replace("__TITLE__", title).replace("__PAGE__", page_id).replace("__STATE__", state_file)
+            .replace("__TABLE1__", table1).replace("__TABLE2BLOCK__", table2_html)
+            .replace("__ASOF__", month_label(as_of)).replace("__ASOFKEY__", as_of)
+            .replace("__PUBLISHED__", published.strftime("%d/%m/%Y %H:%M"))
+            .replace("__DATA__", json.dumps(payload, ensure_ascii=False, separators=(",", ":"))))
+
+
 def render(raw, as_of=None, published=None, out=ROOT / "docs/index.html"):
     L = calc.levels_from_raw(raw)
     as_of = as_of or calc.latest_month(L, REQUIRED)
     G = calc.build_grid(L, as_of)
     payload = charts_payload(G)
     published = published or dt.datetime.now(ZoneInfo("America/Sao_Paulo"))
-    tpl = (ROOT / "scripts/template.html").read_text(encoding="utf-8")
-    page = (tpl.replace("__TABLE1__", table_summary(G, L, as_of))
-            .replace("__TABLE2__", table_wages(G, L, as_of))
-            .replace("__ASOF__", month_label(as_of)).replace("__ASOFKEY__", as_of)
-            .replace("__PUBLISHED__", published.strftime("%d/%m/%Y %H:%M"))
-            .replace("__DATA__", json.dumps(payload, ensure_ascii=False, separators=(",", ":"))))
+    page = fill_template("Employment Situation Summary", "es", "state.json", table_summary(G, L, as_of),
+                         table_wages(G, L, as_of), as_of, published, payload)
     out.parent.mkdir(exist_ok=True)
     out.write_text(page, encoding="utf-8")
     return as_of

@@ -1,0 +1,495 @@
+[
+{
+"row": 14,
+"col": 1,
+"title": [
+"Beveridge Curve",
+""
+],
+"axes": {
+"897376960": {
+"kind": "valAx",
+"min": 0.020000000000000004,
+"max": null,
+"pos": "b",
+"fmt": "0%",
+"rev": false
+},
+"897371200": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "0%",
+"rev": false
+}
+},
+"series": [],
+"dir": null
+},
+{
+"row": 38,
+"col": 1,
+"title": [
+"V/U",
+""
+],
+"axes": {
+"1932065968": {
+"kind": "valAx",
+"min": 0.5,
+"max": 2.1,
+"pos": "l",
+"fmt": "0.0",
+"rev": false
+},
+"1932064048": {
+"kind": "dateAx",
+"min": 42156.0,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$L$4:$L$184",
+"cat": "Gráficos!$A$4:$A$184",
+"nameRef": null,
+"name": null,
+"color": "4EA72E",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 180,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1932064048",
+"1932065968"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$M$4:$M$184",
+"cat": null,
+"nameRef": null,
+"name": "Avg. 2019",
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": "sysDash",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 180,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1932064048",
+"1932065968"
+]
+}
+],
+"dir": null
+},
+{
+"row": 55,
+"col": 1,
+"title": [
+"Hiring rate",
+""
+],
+"axes": {
+"1932065968": {
+"kind": "valAx",
+"min": 0.028000000000000004,
+"max": 0.04400000000000001,
+"pos": "l",
+"fmt": "0.0%",
+"rev": false
+},
+"1932064048": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$D$4:$D$184",
+"cat": "Gráficos!$A$4:$A$184",
+"nameRef": null,
+"name": null,
+"color": "156082",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 180,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1932064048",
+"1932065968"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$H$4:$H$184",
+"cat": null,
+"nameRef": null,
+"name": "Avg. 2019",
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": "sysDash",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 180,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1932064048",
+"1932065968"
+]
+}
+],
+"dir": null
+},
+{
+"row": 75,
+"col": 1,
+"title": [
+"Layoff rate",
+""
+],
+"axes": {
+"1932065968": {
+"kind": "valAx",
+"min": 0.008000000000000002,
+"max": 0.018000000000000002,
+"pos": "l",
+"fmt": "0.0%",
+"rev": false
+},
+"1932064048": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$E$4:$E$184",
+"cat": "Gráficos!$A$4:$A$184",
+"nameRef": null,
+"name": null,
+"color": "accent2/75000",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 180,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1932064048",
+"1932065968"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$I$4:$I$184",
+"cat": null,
+"nameRef": null,
+"name": "Avg. 2019",
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": "sysDash",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 180,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1932064048",
+"1932065968"
+]
+}
+],
+"dir": null
+},
+{
+"row": 92,
+"col": 1,
+"title": [
+"Vacancy rate",
+""
+],
+"axes": {
+"1932065968": {
+"kind": "valAx",
+"min": 0.022000000000000006,
+"max": 0.08000000000000002,
+"pos": "l",
+"fmt": "0.0%",
+"rev": false
+},
+"1932064048": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$F$4:$F$184",
+"cat": "Gráficos!$A$4:$A$184",
+"nameRef": null,
+"name": null,
+"color": "accent3",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 180,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1932064048",
+"1932065968"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$J$4:$J$184",
+"cat": null,
+"nameRef": null,
+"name": null,
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": "sysDash",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 180,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1932064048",
+"1932065968"
+]
+}
+],
+"dir": null
+},
+{
+"row": 109,
+"col": 1,
+"title": [
+"Quits rate",
+""
+],
+"axes": {
+"1932065968": {
+"kind": "valAx",
+"min": 0.013000000000000003,
+"max": 0.029000000000000005,
+"pos": "l",
+"fmt": "0.0%",
+"rev": false
+},
+"1932064048": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$G$4:$G$184",
+"cat": "Gráficos!$A$4:$A$184",
+"nameRef": null,
+"name": null,
+"color": "7F7F7F",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 180,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1932064048",
+"1932065968"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$K$4:$K$184",
+"cat": null,
+"nameRef": null,
+"name": null,
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": "sysDash",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 180,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1932064048",
+"1932065968"
+]
+}
+],
+"dir": null
+}
+]

@@ -1,0 +1,37 @@
+name: jolts-pagina
+on:
+  push:
+    branches: [main]
+    paths: ["scripts/jolts*", ".github/workflows/jolts.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: release
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+    steps:
+      - uses: actions/checkout@v4
+      - name: Monta a pagina do JOLTS
+        env:
+          BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+        run: python3 scripts/jolts.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - uses: actions/deploy-pages@v4
+      - name: Guarda os dados
+        run: |
+          git config user.name "employment-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data docs
+          git commit -m "JOLTS" || exit 0
+          git pull --rebase origin main
+          git push

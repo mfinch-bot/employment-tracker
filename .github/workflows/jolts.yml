@@ -19,6 +19,8 @@ jobs:
       name: github-pages
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - name: Monta a pagina do JOLTS
         env:
           BLS_API_KEY: ${{ secrets.BLS_API_KEY }}

@@ -30,6 +30,8 @@ jobs:
       changed: ${{ steps.run.outputs.changed }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - id: run
         name: Consulta o BLS e monta o dashboard
         env:

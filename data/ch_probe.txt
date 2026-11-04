@@ -1,0 +1,124 @@
+headers {'Cache-Control': 'public, max-age=604800', 'Server': 'nginx', 'X-Pantheon-Styx-Hostname': 'styx-us-a-684cbff7d7-k8rbt', 'X-Cache': 'MISS, MISS', 'Age': '0'}
+## 2026-10-01T04:30:01 2026-10-01T09:30:01 Job Cuts Fall in September; Hiring Plans Up 3% Over 2025 On Weak Early pdf=['https://www.challengergray.com/wp-content/uploads/2026/10/Challenger-Report-September-2026-1.pdf']
+pages=11
+946,426 cuts announced in the first nine months of 2025. Excluding the Government sector, 
+this point last year. The decline is steepest in Government, down 92%. Retail has announced 
+2011, when 76,551 hiring plans were recorded.  
+only Retailers who have announced hiring plans this year, a combined 62,000 seasonal hires. 
+204,939 plans announced through September 2025. Hiring had been running well ahead of 
+TOTAL 573,195 1,206,374 
+Government 4,482 1,477 781 299,755 23,010 
+TOTAL 54,064 52,881 43,281 946,426 573,195 
+TOTAL 5,286 115,362 487,049 
+TOTAL 4,119 93,038 102,838 
+TOTAL 25,821 245,113 261,097 
+TOTAL 8,055 119,682 95,442 
+Government Regulations   148 
+TOTAL 43,281 573,195 
+Year Q1 Q2 Q3 Q4 TOTAL 
+TOTAL 210,612 507,647 769,953 780,123 1,482,364 1,752,417 3,190,862 1,207,751 1,018,428 1,100,654 
+Government 1,164 10,532 12,712 
+TOTAL 90,787 210,612 204,939 
+## 2026-09-02T16:15:00 2026-09-02T21:15:00 Challenger Report: August Job Cuts Up 58%, Consumer Products, Food Lea pdf=['https://www.challengergray.com/wp-content/uploads/2026/09/Challenger-Report-August-2026.pdf']
+pages=11
+announced in the first eight months of 2025. Excluding the Government sector, job cut 
+2010s. What we’d like to see with low layoffs is an increase in hiring activity. While companies are 
+Government announced 1,477 cuts in August for a year-to-date total of 22,229, down 92% from the 
+last year. The decline is steepest in Government, down 92%. Retail has announced 13,369 cuts, 
+total since 2022, when employers announced 41,985 hiring plans. 
+TOTAL 529,914 1,206,374 
+Government 2,979 2,962 1,477 295,273 22,229 
+TOTAL 85,979 33,429 52,881 892,362 529,914 
+TOTAL 13,919 110,076 477,092 
+TOTAL 16,622 88,919 97,086 
+TOTAL 17,267 219,292 231,969 
+TOTAL 5,073 111,627 86,215 
+Government Regulations  148 
+TOTAL 52,881 529,914 
+YEAR Q1 Q2 Q3 Q4 TOTAL 
+TOTAL 119,825 507,647 769,953 780,123 1,482,364 1,752,417 3,190,862 1,207,751 1,018,428 1,100,654 
+Government  9,368 7,056 
+TOTAL 12,325 119,825 87,626 
+## 2026-08-06T04:30:00 2026-08-06T09:30:00 Challenger Report: Layoffs Fall, Hiring Picks Up; AI Leads For Fifth S pdf=['https://www.challengergray.com/wp-content/uploads/2026/08/Challenger-Report-July-2026.pdf']
+pages=12
+“Hiring has also increased over last year by 25%, so while AI is shifting the labor market, it is not 
+Government announced 2,962 cuts in July for a year-to-date total of 20,752, down 93% from the 
+Government with 20,752. 
+point last year. The decline is steepest in Government, down 93%. Retail has announced 12,946 
+since 2022, when employers announced 25,506 hiring plans. 
+Government 20,752 292,294 
+TOTAL 477,033 1,206,374 
+Government 3,666 1,872 2,962 292,294 20,752 
+TOTAL 62,075 45,849 33,429 806,383 477,033 
+TOTAL 5,662 96,157 434,385 
+TOTAL 5,106 72,297 89,444 
+TOTAL 18,625 202,025 202,686 
+TOTAL 4,036 106,554 79,868 
+Government Regulations   148 
+TOTAL 33,429 477,033 
+Year Q1 Q2 Q3 Q4 TOTAL 
+TOTAL 107,500 507,647 769,953 780,123 1,482,364 1,752,417 3,190,862 1,207,751 1,018,428 1,100,654 
+Government   9,368 7,056 
+TOTAL 16,095 107,500 86,132 
+## 2026-07-01T04:33:51 2026-07-01T09:33:51 Challenger Report: June Layoffs Cool to 45,849, Down 53% From May; AI  pdf=['https://www.challengergray.com/wp-content/uploads/2026/08/Challenger-Report-June-2026.pdf']
+pages=10
+Government 17,790 288,628 
+TOTAL 443,604 1,206,374 
+Government 3,801 4,499 1,872 288,628 17,790 
+TOTAL 47,999 97,006 45,849 744,308 443,604 
+TOTAL 18,831 90,495 421,330 
+TOTAL 11,678 183,400 171,241 
+TOTAL 7,820 102,518 72,445 
+TOTAL 7,520 67,191 79,292 
+Government Regulations 0 148 
+TOTAL 45,849 443,604 
+Year Q1 Q2 Q3 Q4 TOTAL 
+TOTAL 91,405 507,647 769,953 780,123 1,482,364 1,752,417 3,190,862 1,207,751 1,018,428 1,100,654 
+2026 TOTAL reflects year-to-date hiring announcements through June. 
+Government 2,000 9,368 7,056 
+TOTAL 10,933 91,405 82,932 
+## 2026-06-04T04:30:35 2026-06-04T09:30:35 Challenger Report: May Job Cuts Rise 16% from April; Highest May Total pdf=['https://www.challengergray.com/wp-content/uploads/2026/06/Challenger-Report-May-2026.pdf']
+pages=12
+AI DRIVES MAY CUTS TO 97,006, HIGHEST MAY TOTAL SINCE 2020; 
+Entities in federal, state, and local Government announced plans to cut 4,499 jobs in May for a total 
+79,741 announced at this point in 2025. Hiring announcements remain historically low by pre-
+Technology led May hiring with 11,250 announced positions, followed by Electronics with 3,158 and 
+Year-to-date, Automotive leads all industries with 12,258 hiring plans, more than double the 4,874 
+sharply from a year ago. Aerospace/Defense (7,676) and Government (7,368) round out the top four.  
+Government 15,918 284,827 
+TOTAL 397,755 1,206,374 
+Government 2,600 9,149 4,499 284,827 15,918 
+TOTAL 93,816 83,387 97,006 696,309 397,755 
+TOTAL 14,805 71,664 404,523 
+TOTAL 11,202 59,671 66,416 
+TOTAL 43,645 171,722 157,252 
+TOTAL 27,354 94,698 68,118 
+Government Regulations  148 
+TOTAL 97,006 397,755 
+Total 970 2,254 4,902 3,087 1,808 1,511 
+  Q1 Q2 Q3 Q4 TOTAL 
+TOTAL 80,472 507,647 769,953 780,123 1,482,364 1,752,417 3,190,862 1,207,751 
+Government 100 7,368 7,056 
+TOTAL 19,536 80,472 79,741 
+## 2026-05-07T04:32:14 2026-05-07T09:32:14 Challenger Report: April Job Cuts Rise 38% from March; YTD Cuts Down 5 pdf=['https://www.challengergray.com/wp-content/uploads/2026/05/Challenger-Report-Apr2026001249.pdf']
+pages=11
+Entities in federal, state, and local Government announced plans to cut 9,149 jobs, the highest 
+Hiring plans fell 69% in April to 10,049 from 32,826 in March. They are down 38% from the 16,191 
+hiring plans announced in April 2025. So far this year, employers have announced plans to hire 
+Government led April hiring with 2,350 announced positions, followed by Technology with 1,980 and 
+Year-to-date, Automotive leads all industries with 12,258 hiring plans, more than double the 4,874 
+Aerospace/Defense (7,366) and Government (7,268) round out the top four, with Aerospace/Defense 
+Government 11,419 282,227 
+TOTAL 300,749 1,206,374 
+Government 2,782 1,127 9,149 282,227 11,419 
+TOTAL 105,441 60,620 83,387 602,493 300,749 
+TOTAL 21,038 56,859 373,621 
+TOTAL 7,935 48,469 58,081 
+TOTAL 44,173 128,077 116,728 
+TOTAL 10,241 67,344 54,063 
+Government Regulations   148 
+TOTAL 83,387 300,749 
+  Q1 Q2 Q3 Q4 TOTAL 
+TOTAL 60,936 507,647 769,953 780,123 1,482,364 1,752,417 3,190,862 1,207,751 
+Government 2,350 7,268 7,056 
+TOTAL 10,049 60,936 70,058 

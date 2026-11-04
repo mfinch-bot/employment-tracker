@@ -1,0 +1,306 @@
+{
+ "B": {
+  "name": "Payroll Employment",
+  "id": "CES0000000001"
+ },
+ "C": {
+  "name": "Private",
+  "id": "CES0500000001"
+ },
+ "D": {
+  "name": "Goods-producing sector",
+  "id": "CES0600000001"
+ },
+ "E": {
+  "name": "Mining and Logging",
+  "id": "CES1000000001"
+ },
+ "F": {
+  "name": "Construction",
+  "id": "CES2000000001"
+ },
+ "G": {
+  "name": "Manufacturing",
+  "id": "CES3000000001"
+ },
+ "H": {
+  "name": "Private Service-Providing",
+  "id": "CES0800000001"
+ },
+ "I": {
+  "name": "Trade, Transportation, and Utilities",
+  "id": "CES4000000001"
+ },
+ "J": {
+  "name": "Information",
+  "id": "CES5000000001"
+ },
+ "K": {
+  "name": "Financial Activities",
+  "id": "CES5500000001"
+ },
+ "L": {
+  "name": "Professional And Business Services",
+  "id": "CES6000000001"
+ },
+ "M": {
+  "name": "Education and Health Services",
+  "id": "CES6500000001"
+ },
+ "N": {
+  "name": "Leisure and Hospitality",
+  "id": "CES7000000001"
+ },
+ "O": {
+  "name": "Other Services",
+  "id": "CES8000000001"
+ },
+ "P": {
+  "name": "Government",
+  "id": "CES9000000001"
+ },
+ "Q": {
+  "name": "Federal",
+  "id": "CES9091000001"
+ },
+ "R": {
+  "name": "State",
+  "id": "CES9092000001"
+ },
+ "S": {
+  "name": "Local",
+  "id": "CES9093000001"
+ },
+ "T": {
+  "name": "Payroll Employment NSA",
+  "id": "CEU0000000001"
+ },
+ "U": {
+  "name": "Private NSA",
+  "id": "CEU0500000001"
+ },
+ "V": {
+  "name": "Government NSA",
+  "id": "CEU9000000001"
+ },
+ "W": {
+  "name": "Health",
+  "id": "CES6562000001"
+ },
+ "X": {
+  "name": "Transportation and warehousing",
+  "id": "CES4300000001"
+ },
+ "Y": {
+  "name": "Retail trade",
+  "id": "CES4200000001"
+ },
+ "Z": {
+  "name": "Utilities",
+  "id": "CES4422000001"
+ },
+ "AA": {
+  "name": "Wholesale trade",
+  "id": "CES4142000001"
+ },
+ "AB": {
+  "name": "Educational services",
+  "id": "CES6561000001"
+ },
+ "AD": {
+  "name": "All Employees - AHE",
+  "id": "CES0500000003"
+ },
+ "AE": {
+  "name": "Production and Nonsupervisory Workers - AHE",
+  "id": "CES0500000008"
+ },
+ "AF": {
+  "name": "Goods-producing sector",
+  "id": "CES0600000003"
+ },
+ "AG": {
+  "name": "Mining and Logging",
+  "id": "CES1000000003"
+ },
+ "AH": {
+  "name": "Construction",
+  "id": "CES2000000003"
+ },
+ "AI": {
+  "name": "Manufacturing",
+  "id": "CES3000000003"
+ },
+ "AJ": {
+  "name": "Private Service-Providing",
+  "id": "CES0800000003"
+ },
+ "AK": {
+  "name": "Trade, Transportation, and Utilities",
+  "id": "CES4000000003"
+ },
+ "AL": {
+  "name": "Information",
+  "id": "CES5000000003"
+ },
+ "AM": {
+  "name": "Financial Activities",
+  "id": "CES5500000003"
+ },
+ "AN": {
+  "name": "Professional And Business Services",
+  "id": "CES6000000003"
+ },
+ "AO": {
+  "name": "Education and Health Services",
+  "id": "CES6500000003"
+ },
+ "AP": {
+  "name": "Leisure and Hospitality",
+  "id": "CES7000000003"
+ },
+ "AQ": {
+  "name": "Other Services",
+  "id": "CES8000000003"
+ },
+ "AR": {
+  "name": "All Employees - AWH",
+  "id": "CES0500000002"
+ },
+ "AS": {
+  "name": "Production and Nonsupervisory Workers - AWE",
+  "id": "CES0500000007"
+ },
+ "AU": {
+  "name": "Population Level",
+  "id": "LNU00000000"
+ },
+ "AV": {
+  "name": "Civilian Labor Force",
+  "id": "LNS11000000"
+ },
+ "AW": {
+  "name": "Participation Rate",
+  "id": "LNS11300000"
+ },
+ "AX": {
+  "name": "Employed",
+  "id": "LNS12000000"
+ },
+ "AY": {
+  "name": "Employed-population ratio",
+  "id": "LNS12300000"
+ },
+ "AZ": {
+  "name": "Unemployed",
+  "id": "LNS13000000"
+ },
+ "BA": {
+  "name": "Not in Labor Force",
+  "id": "LNS15000000"
+ },
+ "BB": {
+  "name": "Job losers on temporary layoffs",
+  "id": "LNS13023653"
+ },
+ "BC": {
+  "name": "U1 - Unemployed 15 weeks or longer",
+  "id": "LNS13025670"
+ },
+ "BD": {
+  "name": "U2 - Job losers & completed temporary jobs",
+  "id": "LNS14023621"
+ },
+ "BF": {
+  "name": "U4 - Unemployed + discouraged workers",
+  "id": "LNS13327707"
+ },
+ "BG": {
+  "name": "U5 -Unemployed, discouraged, marginally attached",
+  "id": "LNS13327708"
+ },
+ "BH": {
+  "name": "U6 - Unemployed, marginally attached, part-time",
+  "id": "LNS13327709"
+ },
+ "BI": {
+  "name": "U 16-24",
+  "id": "LNS14024887"
+ },
+ "BJ": {
+  "name": "U 25-54",
+  "id": "LNS14000060"
+ },
+ "BK": {
+  "name": "U 55+",
+  "id": "LNS14024230"
+ },
+ "BL": {
+  "name": "Unemployed to Employed",
+  "id": "LNS17100000"
+ },
+ "BM": {
+  "name": "Not in Labor Force to Employed",
+  "id": "LNS17200000"
+ },
+ "BN": {
+  "name": "Other Inflows to Employed",
+  "id": "LNS17300000"
+ },
+ "BO": {
+  "name": "Employed to Unemployed",
+  "id": "LNS17400000"
+ },
+ "BP": {
+  "name": "Not in Labor Force to Unemployed",
+  "id": "LNS17600000"
+ },
+ "BQ": {
+  "name": "Other Inflows to Unemployment",
+  "id": "LNS17700000"
+ },
+ "BR": {
+  "name": "Employed to Not in Labor Force",
+  "id": "LNS17800000"
+ },
+ "BS": {
+  "name": "Unemployed to Not in Labor Force",
+  "id": "LNS17900000"
+ },
+ "BT": {
+  "name": "Employed to Other Outflows",
+  "id": "LNS18200000"
+ },
+ "BU": {
+  "name": "Unemployed to Other Outflows",
+  "id": "LNS18300000"
+ },
+ "BW": {
+  "name": "Aggregate Weekly Payrolls",
+  "id": "CES0500000017"
+ },
+ "BX": {
+  "name": "Not on temporary layoff",
+  "id": "LNS13025699"
+ },
+ "BY": {
+  "name": "On temporary layoff",
+  "id": "LNS13023653"
+ },
+ "CA": {
+  "name": "U3 White",
+  "id": "LNS14000003"
+ },
+ "CB": {
+  "name": "U3 Black or African American",
+  "id": "LNS14000006"
+ },
+ "CC": {
+  "name": "U3 Hispanic or Latino",
+  "id": "LNS14000009"
+ },
+ "CD": {
+  "name": "U3 Asian",
+  "id": "LNS14032183"
+ }
+}

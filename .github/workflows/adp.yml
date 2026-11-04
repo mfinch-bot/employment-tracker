@@ -1,0 +1,65 @@
+name: adp
+on:
+  schedule:
+    # 8:05 ET no horario de verao (12h UTC) e no de inverno (13h UTC)
+    - cron: "5 12 * * 1-5"
+    - cron: "5 13 * * 1-5"
+    # Rodada de seguranca
+    - cron: "30 15 * * 1-5"
+  push:
+    branches: [main]
+    paths: ["scripts/adp*", ".github/workflows/adp.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: adp
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    environment:
+      name: github-pages
+    outputs:
+      changed: ${{ steps.run.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - id: run
+        name: Consulta a ADP e monta a pagina
+        env:
+          BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            python3 scripts/adp.py --watch
+          else
+            python3 scripts/adp.py --once --force
+            python3 scripts/jolts.py
+          fi
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.run.outputs.changed == 'true'
+        with:
+          path: docs
+      - id: deploy
+        if: steps.run.outputs.changed == 'true'
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - name: Aguarda publicacao em andamento
+        if: steps.run.outputs.changed == 'true' && steps.deploy.outcome == 'failure'
+        run: sleep 45
+      - name: Publica de novo
+        if: steps.run.outputs.changed == 'true' && steps.deploy.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+      - name: Guarda os dados
+        if: steps.run.outputs.changed == 'true'
+        run: |
+          git config user.name "employment-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data docs
+          git commit -m "ADP $(python3 -c "import json;print(json.load(open('docs/state_adp.json'))['as_of'])")" || exit 0
+          git pull --rebase origin main
+          git push

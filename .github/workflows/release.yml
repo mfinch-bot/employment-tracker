@@ -49,6 +49,13 @@ jobs:
           path: docs
       - id: deploy
         if: steps.run.outputs.changed == 'true'
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - name: Aguarda publicacao em andamento
+        if: steps.run.outputs.changed == 'true' && steps.deploy.outcome == 'failure'
+        run: sleep 45
+      - name: Publica de novo
+        if: steps.run.outputs.changed == 'true' && steps.deploy.outcome == 'failure'
         uses: actions/deploy-pages@v4
       - name: Guarda os dados
         if: steps.run.outputs.changed == 'true'

@@ -28,7 +28,15 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs
-      - uses: actions/deploy-pages@v4
+      - id: deploy
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - name: Aguarda publicacao em andamento
+        if: steps.deploy.outcome == 'failure'
+        run: sleep 45
+      - name: Publica de novo
+        if: steps.deploy.outcome == 'failure'
+        uses: actions/deploy-pages@v4
       - name: Guarda os dados
         run: |
           git config user.name "employment-bot"

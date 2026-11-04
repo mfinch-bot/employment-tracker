@@ -74,7 +74,7 @@ def latest_report(expected=None):
         if expected:
             # So baixa o PDF quando o texto ja fala do mes esperado
             name = MONTH_NAMES[int(expected[5:]) - 1]
-            if not re.search(rf"job cuts in\s+{name}", re.sub(r"<[^>]+>", " ", p["content"]["rendered"])):
+            if not re.search(rf"job cuts in\s+{name}", html.unescape(re.sub(r"<[^>]+>", " ", p["content"]["rendered"]))):
                 raise ValueError("relatorio do mes ainda nao saiu")
         month, cuts, hire, gov = parse_report(p["content"]["rendered"], pdf_text(links[0]))
         pub = dt.datetime.fromisoformat(p["date_gmt"]).replace(tzinfo=dt.timezone.utc)

@@ -26,7 +26,7 @@ def post(ids, start, end, key):
 
 def fetch_all(key):
     ids = sorted({s["id"] for s in json.load(open(ROOT / "scripts/series.json")).values()})
-    this_year = dt.datetime.utcnow().year
+    this_year = dt.datetime.now(dt.timezone.utc).year
     raw = {}
     for i in range(0, len(ids), 50):
         out = post(ids[i:i + 50], FIRST_YEAR, this_year, key)

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Employment Situation Summary</title>
+<style>
+:root{--navy:#153D64;--ink:#1f2a37;--line:#d9d9d9;--band:#DCE9F7;--grp:#E8E8E8}
+*{box-sizing:border-box}body{margin:0;background:#fff;color:var(--ink);font:13px/1.35 Aptos,Calibri,Arial,sans-serif}
+main{max-width:1120px;margin:0 auto;padding:0 16px 32px}
+header{background:var(--navy);color:#fff;text-align:center;padding:18px 12px 14px;margin-top:16px}
+header h1{margin:0;font-size:20px;font-weight:700}header p{margin:6px 0 0;font-size:12px;opacity:.9}
+.tw{overflow-x:auto;margin:20px 0}table{border-collapse:collapse;margin:0 auto;font-size:13px}
+th{background:var(--navy);color:#fff;padding:5px 12px;font-weight:700;white-space:nowrap}
+td{padding:3px 12px;text-align:center;white-space:nowrap}td:first-child{text-align:left}
+table.t1{width:min(720px,100%)}table.t1 tr:nth-child(even):not(.grp) td{background:var(--band)}
+tr.grp td{background:var(--grp);text-align:center!important}td.hi{background:#FFFF00!important;font-weight:700}
+table.t1 th:last-child{font-style:italic;white-space:normal;width:84px}
+table.t2{width:min(720px,100%)}table.t2 tbody tr:nth-child(even) td{background:var(--band)}table.t2 .sup th:not(:last-child){background:transparent}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 24px}.c{min-width:0}.c.full{grid-column:1/-1}
+.chart{width:100%;height:340px}.c.full .chart{height:360px}
+h2{margin:0 0 2px;text-align:center;color:var(--navy);font-size:17px;font-weight:700}.c:not(.full) h2{font-size:15px}
+.sub{margin:0;text-align:center;color:var(--navy);font-weight:700;font-size:13px}
+#wait{margin-top:10px;padding:8px 12px;background:#FFF4CC;border:1px solid #E0C050;text-align:center;font-weight:700}
+footer{margin-top:24px;padding-top:8px;border-top:1px solid var(--line);font-size:12px;color:#595959}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.chart,.c.full .chart{height:300px}td,th{padding:3px 6px;font-size:12px}}
+@media print{.chart{break-inside:avoid}.c{break-inside:avoid}header{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style></head><body><main>
+<header><h1>Employment Situation Summary</h1><p>Latest data: __ASOF__ · Atualizado em __PUBLISHED__ (Brasília)</p></header>
+<div id="wait" hidden>Aguardando o release novo. Os dados abaixo são de __ASOF__.</div>
+<div class="tw">__TABLE1__</div>
+<div class="grid" id="grid"></div>
+<div class="tw">__TABLE2__</div>
+<footer>Fonte: BLS, Mar Asset Management</footer>
+</main>
+<script src="echarts.min.js"></script>
+<script>
+const CH=__DATA__;
+const HIDE=new Set(['p20','med','p80','Band','Percentile 0.25 - 70s']);
+function fmtNum(v,f){
+  if(v==null)return'';
+  if(f&&f.includes('%')){const d=(f.split('.')[1]||'').replace(/[^0]/g,'').length;return(v*100).toFixed(d)+'%'}
+  if(f&&f.includes('.')){const d=(f.split('.')[1]||'').replace(/[^0]/g,'').length;return v.toFixed(d)}
+  if(f==='General'||f==null)return Math.abs(v)<100&&v%1!==0?v.toFixed(1):Math.round(v).toString();
+  return Math.round(v).toString()
+}
+function axisFmt(a){let f=a.fmt||'General';if(f==='0%')f='0.0%';return v=>{
+  if(f==='General')return Number.isInteger(v)?v:v.toFixed(1);
+  if(f.includes('%'))return fmtNum(v,f);
+  if(f.startsWith('#,##0')&&!f.includes('.'))return Number.isInteger(v)?v:v.toFixed(1);
+  return fmtNum(v,f==='0'?(Math.abs(v)<100&&v%1!==0?'0.0':'0'):f)}}
+const DASH={sysDash:[5,3],sysDot:[2,3],dash:[6,4]};
+function labelOf(s,cfg,dark,n,ch){
+  const lab={show:true,formatter:p=>fmtNum(p.value,cfg.fmt||s.fmt),color:cfg.fill?'#555':dark,fontSize:11,
+  backgroundColor:cfg.fill?'#'+cfg.fill:'#fff',borderColor:dark,borderWidth:1,padding:[2,4],position:'top',distance:6};
+  const back=n-1-cfg.i;
+  if(s.type==='bar'&&ch.date){lab.offset=back===0?[20,34]:back===1?[-12,40]:[0,38]}
+  else if(s.type==='line'&&ch.date&&back===0){lab.offset=s._dual?[20,0]:[20,-14]}
+  return lab}
+function build(ch){
+  const axes=ch.axes.map((a,i)=>({type:'value',min:a.min,max:a.max,position:i?'right':'left',scale:a.min!=null,boundaryGap:(a.min==null&&a.max==null)?['6%','8%']:undefined,
+    splitLine:{show:!i,lineStyle:{color:'#d9d9d9'}},axisLine:{show:false},axisTick:{show:false},
+    axisLabel:{formatter:axisFmt(a),color:i?'#6ba5d9':'#153D64',fontSize:11,hideOverlap:true}}));
+  const n=(ch.cats||[]).length;
+  const cat={type:'category',data:ch.cats,inverse:ch.horizontal,boundaryGap:true,axisTick:{show:false},
+    axisLine:{onZero:false,lineStyle:{color:'#bfbfbf'}},
+    axisLabel:{color:'#153D64',fontSize:ch.horizontal?10:11,interval:ch.date?(ch._full?(n>150?5:n>100?2:n>60?1:0):(n>150?11:n>100?5:n>60?3:n>30?2:0)):0,rotate:ch.horizontal?0:ch.date?(n>30?90:45):(n>12?45:0),hideOverlap:false,width:ch.date||ch.horizontal?undefined:82,overflow:ch.date||ch.horizontal?undefined:'break'}};
+  const legend=[];
+  const series=ch.series.map(s=>{
+    const dark='#'+(s.color||'153D64');
+    if(s.name&&!HIDE.has(s.name))legend.push(s.name);
+    s._dual=ch.axes.length>1;
+    s.fmt=s.fmt||ch.axes[s.yAxis||0].fmt;
+    const lab=new Map(s.labels.map(l=>[l.i,l]));
+    const data=s.data.map((v,i)=>{
+      if(lab.has(i)&&v!=null)return{value:v,label:labelOf(s,lab.get(i),dark,s.data.length,ch)};
+      return v});
+    const col='#'+(s.color||'A6A6A6');
+    if(s.noline&&s.marker&&s.marker[0]==='dash'&&s.type==='line'){
+      return{name:s.name,type:'scatter',data:data,symbol:'rect',symbolSize:[Math.max(10,560/(n||12)*.55),4],itemStyle:{color:'#'+(s.markerColor||s.color)},yAxisIndex:s.yAxis,z:5}}
+    if(s.type==='bar'){
+      return{name:s.name,type:'bar',data:data,itemStyle:{color:col},barCategoryGap:ch.horizontal?'45%':'65%',barGap:'0%',
+        label:s.show?{show:true,position:'outside',fontSize:11,color:'#153D64',formatter:p=>p.value==null?'':fmtNum(p.value,s.fmt||ch.axes[0].fmt)}:undefined,labelLayout:{hideOverlap:false}}}
+    if(s.type==='area'){
+      return{name:s.name,type:'line',stack:'band',data:data,symbol:'none',lineStyle:{width:0},areaStyle:s.fill?{color:'#'+s.fill,opacity:.8}:{opacity:0},z:1}}
+    const mark=s.marker&&s.marker[0]!=='none'||(!s.marker&&ch.cats&&ch.cats.length===12);
+    return{name:s.name,type:'line',data:data,yAxisIndex:s.yAxis,connectNulls:true,clip:true,
+      symbol:'circle',symbolSize:mark?7:1,showSymbol:true,showAllSymbol:true,
+      lineStyle:{color:col,width:s.width||2.25,type:DASH[s.dash]||'solid'},itemStyle:{color:col},z:s.labels.length?4:3}
+  });
+  return{animation:false,grid:{left:ch.horizontal?150:44,right:ch.axes.length>1?52:44,top:18,bottom:legend.length?(ch.date?(n>30?76:72):(n>12?64:52)):(ch.date?(n>30?54:48):(n>12?44:30)),containLabel:false},
+    legend:legend.length?{data:legend,bottom:0,itemWidth:22,itemHeight:8,icon:undefined,textStyle:{color:'#153D64',fontSize:11}}:undefined,
+    tooltip:{trigger:'axis',valueFormatter:v=>v==null?'':(Math.abs(v)<1&&ch.axes[0].fmt&&ch.axes[0].fmt.includes('%')?(v*100).toFixed(2)+'%':(Math.abs(v)<100?Number(v).toFixed(2):Math.round(v)))},
+    xAxis:ch.horizontal?{...axes[0],position:'top'}:cat,yAxis:ch.horizontal?cat:axes,series}
+}
+const grid=document.getElementById('grid'),insts=[];
+const rows={};CH.forEach(c=>{(rows[c.row]=rows[c.row]||[]).push(c)});
+CH.forEach(c=>{
+  const d=document.createElement('section');d.className='c'+(rows[c.row].length<2?' full':'');
+  const h=document.createElement('h2');h.textContent=c.title[0]||'';d.appendChild(h);
+  if(c.title[1]){const p=document.createElement('p');p.className='sub';p.textContent=c.title[1];d.appendChild(p)}
+  const e=document.createElement('div');e.className='chart';d.appendChild(e);grid.appendChild(d);
+  c._full=rows[c.row].length<2;
+  const i=echarts.init(e,null,{renderer:'canvas'});i.setOption(build(c));insts.push(i)});
+addEventListener('resize',()=>insts.forEach(i=>i.resize()));
+const ASOF='__ASOFKEY__';
+async function poll(){try{
+  const st=await fetch('state.json?t='+Date.now(),{cache:'no-store'}).then(r=>r.json());
+  if(st.as_of!==ASOF){location.replace(location.pathname+'?v='+st.as_of);return}
+  const nx=st.next_release?new Date(st.next_release).getTime():null;
+  document.getElementById('wait').hidden=!(nx&&Date.now()>nx);
+}catch(e){}}
+poll();setInterval(poll,20000);
+</script></body></html>

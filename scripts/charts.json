@@ -1,0 +1,5011 @@
+[
+{
+"row": 19,
+"col": 1,
+"title": [
+"Nonfarm Payroll",
+""
+],
+"axes": {
+"1740256015": {
+"kind": "valAx",
+"min": -200.0,
+"max": 1000.0,
+"pos": "l",
+"fmt": "0",
+"rev": false
+},
+"1740255055": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "bar",
+"group": 0,
+"val": "Gráficos!$B$7:$B$126",
+"cat": "Gráficos!$A$7:$A$126",
+"nameRef": null,
+"name": "Nonfarm Payroll Increase",
+"color": "AEAEAE",
+"fill": "AEAEAE",
+"noline": false,
+"dash": null,
+"width": null,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 107,
+"fmt": null,
+"fill": null
+},
+{
+"i": 118,
+"fmt": null,
+"fill": null
+},
+{
+"i": 119,
+"fmt": null,
+"fill": "FFFF00"
+}
+],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1740255055",
+"1740256015"
+]
+},
+{
+"type": "line",
+"group": 1,
+"val": "Gráficos!$W$7:$W$126",
+"cat": "Gráficos!$A$7:$A$126",
+"nameRef": null,
+"name": "3MMA",
+"color": "153D64",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 119,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1740255055",
+"1740256015"
+]
+}
+],
+"dir": "col"
+},
+{
+"row": 38,
+"col": 1,
+"title": [
+"Nonfarm Payroll Increase NSA",
+""
+],
+"axes": {
+"527455679": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "0",
+"rev": false
+},
+"527450399": {
+"kind": "catAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "General",
+"rev": false
+}
+},
+"series": [
+{
+"type": "bar",
+"group": 0,
+"val": "Gráficos!$AV$7:$AV$18",
+"cat": "Gráficos!$AR$7:$AR$18",
+"nameRef": null,
+"name": "2025",
+"color": "153D64",
+"fill": "153D64",
+"noline": true,
+"dash": null,
+"width": null,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"527450399",
+"527455679"
+]
+},
+{
+"type": "bar",
+"group": 0,
+"val": "Gráficos!$AU$7:$AU$18",
+"cat": "Gráficos!$AR$7:$AR$18",
+"nameRef": null,
+"name": "2024",
+"color": "A6CAEC",
+"fill": "A6CAEC",
+"noline": true,
+"dash": null,
+"width": null,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"527450399",
+"527455679"
+]
+},
+{
+"type": "line",
+"group": 1,
+"val": "Gráficos!$AT$7:$AT$18",
+"cat": "Gráficos!$AR$7:$AR$18",
+"nameRef": null,
+"name": "Mediana 2015-2019",
+"color": "0F9ED5",
+"fill": null,
+"noline": true,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"dash",
+12
+],
+"markerColor": "0F9ED5",
+"smooth": false,
+"ax": [
+"527450399",
+"527455679"
+]
+}
+],
+"dir": "col"
+},
+{
+"row": 38,
+"col": 7,
+"title": [
+"=Gráficos!$AU$20"
+],
+"axes": {
+"662063631": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "0",
+"rev": false
+},
+"662064111": {
+"kind": "catAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "0",
+"rev": false
+}
+},
+"series": [
+{
+"type": "bar",
+"group": 0,
+"val": "Gráficos!$AT$22:$AT$37",
+"cat": "Gráficos!$AS$22:$AS$37",
+"nameRef": null,
+"name": null,
+"color": "156082",
+"fill": "156082",
+"noline": true,
+"dash": null,
+"width": null,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"662064111",
+"662063631"
+]
+},
+{
+"type": "line",
+"group": 1,
+"val": "Gráficos!$AU$22:$AU$37",
+"cat": "Gráficos!$AS$22:$AS$37",
+"nameRef": null,
+"name": null,
+"color": "0F9ED5",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 7,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"662064111",
+"662063631"
+]
+}
+],
+"dir": "col"
+},
+{
+"row": 57,
+"col": 1,
+"title": [
+"Private Payroll",
+""
+],
+"axes": {
+"1740256015": {
+"kind": "valAx",
+"min": -200.0,
+"max": 1000.0,
+"pos": "l",
+"fmt": "0",
+"rev": false
+},
+"1740255055": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "bar",
+"group": 0,
+"val": "Gráficos!$C$7:$C$126",
+"cat": "Gráficos!$A$7:$A$126",
+"nameRef": null,
+"name": "Private Payroll Increase",
+"color": "AEAEAE",
+"fill": "AEAEAE",
+"noline": false,
+"dash": null,
+"width": null,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 107,
+"fmt": null,
+"fill": null
+},
+{
+"i": 118,
+"fmt": null,
+"fill": null
+},
+{
+"i": 119,
+"fmt": null,
+"fill": null
+}
+],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1740255055",
+"1740256015"
+]
+},
+{
+"type": "line",
+"group": 1,
+"val": "Gráficos!$X$7:$X$126",
+"cat": "Gráficos!$A$7:$A$126",
+"nameRef": null,
+"name": "3MMA",
+"color": "153D64",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 119,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1740255055",
+"1740256015"
+]
+}
+],
+"dir": "col"
+},
+{
+"row": 74,
+"col": 1,
+"title": [
+"Payroll Ex Government & Health",
+""
+],
+"axes": {
+"1740256015": {
+"kind": "valAx",
+"min": -200.0,
+"max": 1000.0,
+"pos": "l",
+"fmt": "0",
+"rev": false
+},
+"1740255055": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "bar",
+"group": 0,
+"val": "Gráficos!$AE$7:$AE$126",
+"cat": "Gráficos!$A$7:$A$126",
+"nameRef": null,
+"name": "Payroll Ex Government & Health Increase",
+"color": "AEAEAE",
+"fill": "AEAEAE",
+"noline": false,
+"dash": null,
+"width": null,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 107,
+"fmt": null,
+"fill": null
+},
+{
+"i": 118,
+"fmt": null,
+"fill": null
+},
+{
+"i": 119,
+"fmt": null,
+"fill": null
+}
+],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1740255055",
+"1740256015"
+]
+},
+{
+"type": "line",
+"group": 1,
+"val": "Gráficos!$AF$7:$AF$126",
+"cat": "Gráficos!$A$7:$A$126",
+"nameRef": null,
+"name": "3MMA",
+"color": "153D64",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 119,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1740255055",
+"1740256015"
+]
+}
+],
+"dir": "col"
+},
+{
+"row": 92,
+"col": 1,
+"title": [
+"Government Payroll",
+""
+],
+"axes": {
+"1740256015": {
+"kind": "valAx",
+"min": -100.0,
+"max": 150.0,
+"pos": "l",
+"fmt": "0",
+"rev": false
+},
+"1740255055": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "bar",
+"group": 0,
+"val": "Gráficos!$P$7:$P$126",
+"cat": "Gráficos!$A$7:$A$126",
+"nameRef": null,
+"name": "Government Payroll Increase",
+"color": "AEAEAE",
+"fill": "AEAEAE",
+"noline": false,
+"dash": null,
+"width": null,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 107,
+"fmt": null,
+"fill": null
+},
+{
+"i": 118,
+"fmt": null,
+"fill": null
+},
+{
+"i": 119,
+"fmt": null,
+"fill": null
+}
+],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1740255055",
+"1740256015"
+]
+},
+{
+"type": "line",
+"group": 1,
+"val": "Gráficos!$Y$7:$Y$126",
+"cat": "Gráficos!$A$7:$A$126",
+"nameRef": null,
+"name": "3MMA",
+"color": "153D64",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 119,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1740255055",
+"1740256015"
+]
+}
+],
+"dir": "col"
+},
+{
+"row": 110,
+"col": 1,
+"title": [
+"Health Payroll",
+""
+],
+"axes": {
+"1740256015": {
+"kind": "valAx",
+"min": -30.0,
+"max": 150.0,
+"pos": "l",
+"fmt": "0",
+"rev": false
+},
+"1740255055": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "bar",
+"group": 0,
+"val": "Gráficos!$Z$7:$Z$126",
+"cat": "Gráficos!$A$7:$A$126",
+"nameRef": null,
+"name": "Health Payroll Increase",
+"color": "AEAEAE",
+"fill": "AEAEAE",
+"noline": false,
+"dash": null,
+"width": null,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 107,
+"fmt": null,
+"fill": null
+},
+{
+"i": 118,
+"fmt": null,
+"fill": null
+},
+{
+"i": 119,
+"fmt": null,
+"fill": null
+}
+],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1740255055",
+"1740256015"
+]
+},
+{
+"type": "line",
+"group": 1,
+"val": "Gráficos!$AD$7:$AD$126",
+"cat": "Gráficos!$A$7:$A$126",
+"nameRef": null,
+"name": "3MMA",
+"color": "153D64",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 119,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1740255055",
+"1740256015"
+]
+}
+],
+"dir": "col"
+},
+{
+"row": 128,
+"col": 1,
+"title": [
+"Payroll Breakdown by Sector",
+""
+],
+"axes": {
+"200728943": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "t",
+"fmt": "0",
+"rev": false
+},
+"200729903": {
+"kind": "catAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "General",
+"rev": true
+}
+},
+"series": [
+{
+"type": "bar",
+"group": 0,
+"val": "(Gráficos!$E$7:$G$7,Gráficos!$I$7:$S$7)",
+"cat": "(Gráficos!$E$6:$G$6,Gráficos!$I$6:$S$6)",
+"nameRef": "Gráficos!$AV$20",
+"name": "Sep",
+"color": "156082",
+"fill": "156082",
+"noline": true,
+"dash": null,
+"width": null,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"200729903",
+"200728943"
+]
+},
+{
+"type": "bar",
+"group": 0,
+"val": "(Gráficos!$E$8:$G$8,Gráficos!$I$8:$S$8)",
+"cat": "(Gráficos!$E$6:$G$6,Gráficos!$I$6:$S$6)",
+"nameRef": null,
+"name": "Prior month",
+"color": "A6CAEC",
+"fill": "A6CAEC",
+"noline": true,
+"dash": null,
+"width": null,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"200729903",
+"200728943"
+]
+}
+],
+"dir": "bar"
+},
+{
+"row": 147,
+"col": 1,
+"title": [
+"Payroll by Sector",
+"(Quarterly average)",
+""
+],
+"axes": {
+"1923660175": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "0",
+"rev": false
+},
+"1923666415": {
+"kind": "catAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "General",
+"rev": false
+}
+},
+"series": [
+{
+"type": "bar",
+"group": 0,
+"val": "Gráficos!$AZ$29:$BJ$29",
+"cat": "Gráficos!$AZ$6:$BJ$6",
+"nameRef": "Gráficos!$AY$29",
+"name": "3Q2025",
+"color": "3A7C22",
+"fill": "3A7C22",
+"noline": true,
+"dash": null,
+"width": null,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1923666415",
+"1923660175"
+]
+},
+{
+"type": "bar",
+"group": 0,
+"val": "Gráficos!$AZ$28:$BJ$28",
+"cat": "Gráficos!$AZ$6:$BJ$6",
+"nameRef": "Gráficos!$AY$28",
+"name": "4Q2025",
+"color": "B4E5A2",
+"fill": "B4E5A2",
+"noline": true,
+"dash": null,
+"width": null,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1923666415",
+"1923660175"
+]
+},
+{
+"type": "bar",
+"group": 0,
+"val": "Gráficos!$AZ$27:$BJ$27",
+"cat": "Gráficos!$AZ$6:$BJ$6",
+"nameRef": "Gráficos!$AY$27",
+"name": "1Q2026",
+"color": "7F7F7F",
+"fill": "7F7F7F",
+"noline": true,
+"dash": null,
+"width": null,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1923666415",
+"1923660175"
+]
+},
+{
+"type": "bar",
+"group": 0,
+"val": "Gráficos!$AZ$26:$BJ$26",
+"cat": "Gráficos!$AZ$6:$BJ$6",
+"nameRef": "Gráficos!$AY$26",
+"name": "2Q2026",
+"color": "A6CAEC",
+"fill": "A6CAEC",
+"noline": true,
+"dash": null,
+"width": null,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1923666415",
+"1923660175"
+]
+},
+{
+"type": "bar",
+"group": 0,
+"val": "Gráficos!$AZ$25:$BJ$25",
+"cat": "Gráficos!$AZ$6:$BJ$6",
+"nameRef": "Gráficos!$AY$25",
+"name": "3Q2026",
+"color": "153D64",
+"fill": "153D64",
+"noline": true,
+"dash": null,
+"width": null,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1923666415",
+"1923660175"
+]
+},
+{
+"type": "line",
+"group": 1,
+"val": "Gráficos!$AZ$31:$BJ$31",
+"cat": null,
+"nameRef": "Gráficos!$AY$31",
+"name": "Average 2016-2019",
+"color": "0F9ED5",
+"fill": null,
+"noline": true,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"dash",
+12
+],
+"markerColor": "0F9ED5",
+"smooth": false,
+"ax": [
+"1923666415",
+"1923660175"
+]
+}
+],
+"dir": "col"
+},
+{
+"row": 165,
+"col": 1,
+"title": [
+"Payroll sectors: highest vs. lowest share of immigrants (3mma)",
+""
+],
+"axes": {
+"2082875471": {
+"kind": "valAx",
+"min": -50.0,
+"max": 260.0,
+"pos": "l",
+"fmt": "0",
+"rev": false
+},
+"2082877391": {
+"kind": "dateAx",
+"min": 44197.0,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$AJ$7:$AJ$171",
+"cat": "Gráficos!$A$7:$A$171",
+"nameRef": null,
+"name": "High immigrant share",
+"color": "153D64",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 164,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"2082877391",
+"2082875471"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$AK$7:$AK$171",
+"cat": "Gráficos!$A$7:$A$171",
+"nameRef": null,
+"name": "Low immigrant share",
+"color": "A6CAEC",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 164,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"2082877391",
+"2082875471"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$AL$7:$AL$171",
+"cat": "Gráficos!$A$7:$A$171",
+"nameRef": null,
+"name": "High immigrant avg. 2016-2019",
+"color": "153D64",
+"fill": null,
+"noline": false,
+"dash": "sysDash",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 129,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"2082877391",
+"2082875471"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$AM$7:$AM$171",
+"cat": "Gráficos!$A$7:$A$171",
+"nameRef": null,
+"name": "Low immigrant avg. 2016-2019",
+"color": "A6CAEC",
+"fill": null,
+"noline": false,
+"dash": "sysDash",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 129,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"2082877391",
+"2082875471"
+]
+}
+],
+"dir": null
+},
+{
+"row": 184,
+"col": 1,
+"title": [
+"Payroll Employment",
+""
+],
+"axes": {
+"871130495": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "General",
+"rev": false
+},
+"871131935": {
+"kind": "catAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "General",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$EW$8:$EW$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$EW$7",
+"name": "2025",
+"color": "215F9A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "215F9A",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$EX$8:$EX$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$EX$7",
+"name": "2026",
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "C00000",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$EY$8:$EY$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$EY$7",
+"name": "p20",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$EZ$8:$EZ$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$EZ$7",
+"name": "med",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FA$8:$FA$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$FA$7",
+"name": "p80",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+}
+],
+"dir": null
+},
+{
+"row": 184,
+"col": 7,
+"title": [
+"Private Payroll",
+""
+],
+"axes": {
+"871130495": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "General",
+"rev": false
+},
+"871131935": {
+"kind": "catAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "General",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FE$8:$FE$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$FE$7",
+"name": "2025",
+"color": "215F9A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "215F9A",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FF$8:$FF$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$FF$7",
+"name": "2026",
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "C00000",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FG$8:$FG$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$FG$7",
+"name": "p20",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FH$8:$FH$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$FH$7",
+"name": "med",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FI$8:$FI$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$FI$7",
+"name": "p80",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+}
+],
+"dir": null
+},
+{
+"row": 201,
+"col": 1,
+"title": [
+"Mining and Logging",
+""
+],
+"axes": {
+"871130495": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "General",
+"rev": false
+},
+"871131935": {
+"kind": "catAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "General",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FM$8:$FM$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$FM$7",
+"name": "2025",
+"color": "215F9A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "215F9A",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FN$8:$FN$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$FN$7",
+"name": "2026",
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "C00000",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FO$8:$FO$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$FO$7",
+"name": "p20",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FP$8:$FP$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$FP$7",
+"name": "med",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FQ$8:$FQ$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$FQ$7",
+"name": "p80",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+}
+],
+"dir": null
+},
+{
+"row": 201,
+"col": 7,
+"title": [
+"Construction",
+""
+],
+"axes": {
+"871130495": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "General",
+"rev": false
+},
+"871131935": {
+"kind": "catAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "General",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FU$8:$FU$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$FU$7",
+"name": "2025",
+"color": "215F9A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "215F9A",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FV$8:$FV$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$FV$7",
+"name": "2026",
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "C00000",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FW$8:$FW$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$FW$7",
+"name": "p20",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FX$8:$FX$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$FX$7",
+"name": "med",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FY$8:$FY$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$FY$7",
+"name": "p80",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+}
+],
+"dir": null
+},
+{
+"row": 221,
+"col": 1,
+"title": [
+"Manufacturing",
+""
+],
+"axes": {
+"871130495": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "General",
+"rev": false
+},
+"871131935": {
+"kind": "catAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "General",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$GC$8:$GC$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$GC$7",
+"name": "2025",
+"color": "215F9A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "215F9A",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$GD$8:$GD$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$GD$7",
+"name": "2026",
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "C00000",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$GE$8:$GE$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$GE$7",
+"name": "p20",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$GF$8:$GF$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$GF$7",
+"name": "med",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$GG$8:$GG$19",
+"cat": "Gráficos!$ET$8:$ET$19",
+"nameRef": "Gráficos!$GG$7",
+"name": "p80",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+}
+],
+"dir": null
+},
+{
+"row": 221,
+"col": 7,
+"title": [
+"Trade, Transportation, and Utilities",
+""
+],
+"axes": {
+"871130495": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "General",
+"rev": false
+},
+"871131935": {
+"kind": "catAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "General",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$EW$22:$EW$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$EW$7",
+"name": "2025",
+"color": "215F9A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "215F9A",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$EX$22:$EX$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$EX$7",
+"name": "2026",
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "C00000",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$EY$22:$EY$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$EY$7",
+"name": "p20",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$EZ$22:$EZ$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$EZ$7",
+"name": "med",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FA$22:$FA$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$FA$7",
+"name": "p80",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+}
+],
+"dir": null
+},
+{
+"row": 238,
+"col": 1,
+"title": [
+"Information",
+""
+],
+"axes": {
+"871130495": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "General",
+"rev": false
+},
+"871131935": {
+"kind": "catAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "General",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FE$22:$FE$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$FE$7",
+"name": "2025",
+"color": "215F9A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "215F9A",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FF$22:$FF$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$FF$7",
+"name": "2026",
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "C00000",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FG$22:$FG$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$FG$7",
+"name": "p20",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FH$22:$FH$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$FH$7",
+"name": "med",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FI$22:$FI$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$FI$7",
+"name": "p80",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+}
+],
+"dir": null
+},
+{
+"row": 238,
+"col": 7,
+"title": [
+"Financial Activities",
+""
+],
+"axes": {
+"871130495": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "General",
+"rev": false
+},
+"871131935": {
+"kind": "catAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "General",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FM$22:$FM$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$FM$7",
+"name": "2025",
+"color": "215F9A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "215F9A",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FN$22:$FN$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$FN$7",
+"name": "2026",
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "C00000",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FO$22:$FO$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$FO$7",
+"name": "p20",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FP$22:$FP$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$FP$7",
+"name": "med",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FQ$22:$FQ$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$FQ$7",
+"name": "p80",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+}
+],
+"dir": null
+},
+{
+"row": 255,
+"col": 1,
+"title": [
+"Professional and Business Services",
+""
+],
+"axes": {
+"871130495": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "General",
+"rev": false
+},
+"871131935": {
+"kind": "catAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "General",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FU$22:$FU$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$FU$7",
+"name": "2025",
+"color": "215F9A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "215F9A",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FV$22:$FV$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$FV$7",
+"name": "2026",
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "C00000",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FW$22:$FW$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$FW$7",
+"name": "p20",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FX$22:$FX$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$FX$7",
+"name": "med",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FY$22:$FY$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$FY$7",
+"name": "p80",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+}
+],
+"dir": null
+},
+{
+"row": 255,
+"col": 7,
+"title": [
+"Education and Health Services",
+""
+],
+"axes": {
+"871130495": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "General",
+"rev": false
+},
+"871131935": {
+"kind": "catAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "General",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$GC$22:$GC$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$GC$7",
+"name": "2025",
+"color": "215F9A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "215F9A",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$GD$22:$GD$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$GD$7",
+"name": "2026",
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "C00000",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$GE$22:$GE$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$GE$7",
+"name": "p20",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$GF$22:$GF$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$GF$7",
+"name": "med",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$GG$22:$GG$33",
+"cat": "Gráficos!$ET$22:$ET$33",
+"nameRef": "Gráficos!$GG$7",
+"name": "p80",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+}
+],
+"dir": null
+},
+{
+"row": 272,
+"col": 1,
+"title": [
+"Leisure and Hospitality",
+""
+],
+"axes": {
+"871130495": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "General",
+"rev": false
+},
+"871131935": {
+"kind": "catAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "General",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$EW$36:$EW$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$EW$7",
+"name": "2025",
+"color": "215F9A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "215F9A",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$EX$36:$EX$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$EX$7",
+"name": "2026",
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "C00000",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$EY$36:$EY$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$EY$7",
+"name": "p20",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$EZ$36:$EZ$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$EZ$7",
+"name": "med",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FA$36:$FA$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$FA$7",
+"name": "p80",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+}
+],
+"dir": null
+},
+{
+"row": 272,
+"col": 7,
+"title": [
+"Other Services",
+""
+],
+"axes": {
+"871130495": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "General",
+"rev": false
+},
+"871131935": {
+"kind": "catAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "General",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FE$36:$FE$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$FE$7",
+"name": "2025",
+"color": "215F9A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "215F9A",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FF$36:$FF$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$FF$7",
+"name": "2026",
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "C00000",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FG$36:$FG$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$FG$7",
+"name": "p20",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FH$36:$FH$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$FH$7",
+"name": "med",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FI$36:$FI$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$FI$7",
+"name": "p80",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+}
+],
+"dir": null
+},
+{
+"row": 294,
+"col": 1,
+"title": [
+"Government",
+""
+],
+"axes": {
+"871130495": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "General",
+"rev": false
+},
+"871131935": {
+"kind": "catAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "General",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FM$36:$FM$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$FM$7",
+"name": "2025",
+"color": "215F9A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "215F9A",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FN$36:$FN$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$FN$7",
+"name": "2026",
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "C00000",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FO$36:$FO$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$FO$7",
+"name": "p20",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FP$36:$FP$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$FP$7",
+"name": "med",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FQ$36:$FQ$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$FQ$7",
+"name": "p80",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+}
+],
+"dir": null
+},
+{
+"row": 294,
+"col": 7,
+"title": [
+"Health",
+""
+],
+"axes": {
+"871130495": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "General",
+"rev": false
+},
+"871131935": {
+"kind": "catAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "General",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FU$36:$FU$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$FU$7",
+"name": "2025",
+"color": "215F9A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "215F9A",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FV$36:$FV$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$FV$7",
+"name": "2026",
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"circle",
+6
+],
+"markerColor": "C00000",
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FW$36:$FW$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$FW$7",
+"name": "p20",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FX$36:$FX$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$FX$7",
+"name": "med",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$FY$36:$FY$47",
+"cat": "Gráficos!$ET$36:$ET$47",
+"nameRef": "Gráficos!$FY$7",
+"name": "p80",
+"color": "3A3A3A",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"871131935",
+"871130495"
+]
+}
+],
+"dir": null
+},
+{
+"row": 311,
+"col": 1,
+"title": [
+"Payroll & HH Survey",
+"(in thousands/month)",
+""
+],
+"axes": {
+"1988988495": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "0",
+"rev": false
+},
+"1988987535": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-416]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "bar",
+"group": 0,
+"val": "Gráficos!$B$7:$B$30",
+"cat": "Gráficos!$A$7:$A$30",
+"nameRef": null,
+"name": "Payroll (Establishment Survey)",
+"color": "A6CAEC",
+"fill": "A6CAEC",
+"noline": true,
+"dash": null,
+"width": null,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1988987535",
+"1988988495"
+]
+},
+{
+"type": "bar",
+"group": 0,
+"val": "Gráficos!$CU$7:$CU$30",
+"cat": "Gráficos!$A$7:$A$30",
+"nameRef": null,
+"name": "Employment (Household Survey)",
+"color": "153D64",
+"fill": "153D64",
+"noline": true,
+"dash": null,
+"width": null,
+"show": true,
+"labelFmt": null,
+"labels": [],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1988987535",
+"1988988495"
+]
+}
+],
+"dir": "col"
+},
+{
+"row": 329,
+"col": 1,
+"title": [
+"Unemployment Rate",
+"(SA)",
+""
+],
+"axes": {
+"495338096": {
+"kind": "valAx",
+"min": 0.030000000000000006,
+"max": 0.06000000000000001,
+"pos": "l",
+"fmt": "0%",
+"rev": false
+},
+"495338576": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$DA$7:$DA$90",
+"cat": "Gráficos!$A$7:$A$90",
+"nameRef": null,
+"name": null,
+"color": "156082",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": "0.00%",
+"labels": [
+{
+"i": 21,
+"fmt": null,
+"fill": null
+},
+{
+"i": 82,
+"fmt": null,
+"fill": null
+},
+{
+"i": 83,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"495338576",
+"495338096"
+]
+}
+],
+"dir": null
+},
+{
+"row": 347,
+"col": 1,
+"title": [
+"Unemployment rates: U3 vs U6",
+""
+],
+"axes": {
+"2076225871": {
+"kind": "valAx",
+"min": 0.030000000000000006,
+"max": 0.05500000000000001,
+"pos": "l",
+"fmt": "0.0%",
+"rev": false
+},
+"268410239": {
+"kind": "valAx",
+"min": 0.06500000000000002,
+"max": 0.1,
+"pos": "r",
+"fmt": "0.0%",
+"rev": false
+},
+"2076225391": {
+"kind": "dateAx",
+"min": 42217.0,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+},
+"268404959": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "m/d/yyyy",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$DA$7:$DA$175",
+"cat": "Gráficos!$A$7:$A$175",
+"nameRef": null,
+"name": "U3",
+"color": "153D64",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 168,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"2076225391",
+"2076225871"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$DG$7:$DG$175",
+"cat": "Gráficos!$A$7:$A$175",
+"nameRef": null,
+"name": "U3 2016-2019 Avg",
+"color": "153D64",
+"fill": null,
+"noline": false,
+"dash": "sysDash",
+"width": 1.75,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 110,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"2076225391",
+"2076225871"
+]
+},
+{
+"type": "line",
+"group": 1,
+"val": "Gráficos!$DE$7:$DE$175",
+"cat": "Gráficos!$A$7:$A$175",
+"nameRef": null,
+"name": "U6",
+"color": "A6CAEC",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.0,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 168,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"268404959",
+"268410239"
+]
+},
+{
+"type": "line",
+"group": 1,
+"val": "Gráficos!$DF$7:$DF$175",
+"cat": "Gráficos!$A$7:$A$175",
+"nameRef": null,
+"name": "U6 2016-2019 Avg",
+"color": "A6CAEC",
+"fill": null,
+"noline": false,
+"dash": "sysDash",
+"width": 1.75,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 112,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"268404959",
+"268410239"
+]
+}
+],
+"dir": null
+},
+{
+"row": 347,
+"col": 7,
+"title": [
+"Unemployment rates: U3 vs U6",
+""
+],
+"axes": {
+"2076225871": {
+"kind": "valAx",
+"min": 0.03250000000000001,
+"max": 0.04700000000000001,
+"pos": "l",
+"fmt": "0.0%",
+"rev": false
+},
+"268410239": {
+"kind": "valAx",
+"min": 0.06500000000000002,
+"max": 0.08700000000000002,
+"pos": "r",
+"fmt": "0.0%",
+"rev": false
+},
+"2076225391": {
+"kind": "dateAx",
+"min": 44927.0,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+},
+"268404959": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "m/d/yyyy",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$DA$7:$DA$175",
+"cat": "Gráficos!$A$7:$A$175",
+"nameRef": null,
+"name": "U3",
+"color": "153D64",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 168,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"2076225391",
+"2076225871"
+]
+},
+{
+"type": "line",
+"group": 1,
+"val": "Gráficos!$DE$7:$DE$175",
+"cat": "Gráficos!$A$7:$A$175",
+"nameRef": null,
+"name": "U6",
+"color": "A6CAEC",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 168,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"268404959",
+"268410239"
+]
+}
+],
+"dir": null
+},
+{
+"row": 367,
+"col": 1,
+"title": [
+"Unemployment by Age",
+"(%, SA)",
+""
+],
+"axes": {
+"495338096": {
+"kind": "valAx",
+"min": 2.0,
+"max": 11.0,
+"pos": "l",
+"fmt": "#,##0",
+"rev": false
+},
+"495338576": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$DH$7:$DH$90",
+"cat": "Gráficos!$A$7:$A$90",
+"nameRef": null,
+"name": "16-24",
+"color": "747474",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"495338576",
+"495338096"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$DI$7:$DI$90",
+"cat": null,
+"nameRef": null,
+"name": "25-54",
+"color": "153D64",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"495338576",
+"495338096"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$DJ$7:$DJ$90",
+"cat": null,
+"nameRef": null,
+"name": "55+",
+"color": "A6CAEC",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"495338576",
+"495338096"
+]
+}
+],
+"dir": null
+},
+{
+"row": 367,
+"col": 7,
+"title": [
+"Unemployment by Demographics",
+"(%, SA)",
+""
+],
+"axes": {
+"982460048": {
+"kind": "valAx",
+"min": 1.0,
+"max": 11.0,
+"pos": "l",
+"fmt": "General",
+"rev": false
+},
+"1125040800": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$EE$7:$EE$90",
+"cat": "Gráficos!$A$7:$A$90",
+"nameRef": null,
+"name": "White",
+"color": "7F7F7F",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1125040800",
+"982460048"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$EF$7:$EF$90",
+"cat": "Gráficos!$A$7:$A$90",
+"nameRef": null,
+"name": "Black or African Americans",
+"color": "A6CAEC",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1125040800",
+"982460048"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$EG$7:$EG$90",
+"cat": "Gráficos!$A$7:$A$90",
+"nameRef": null,
+"name": "Hispanic or Latino",
+"color": "153D64",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1125040800",
+"982460048"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$EH$7:$EH$90",
+"cat": "Gráficos!$A$7:$A$90",
+"nameRef": null,
+"name": "Asian",
+"color": "0F9ED5",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1125040800",
+"982460048"
+]
+}
+],
+"dir": null
+},
+{
+"row": 384,
+"col": 1,
+"title": [
+"U rate with Stable Labor Force Participation",
+"(Participation rate = Dec/25)",
+""
+],
+"axes": {
+"389253615": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "0.0%",
+"rev": false
+},
+"389259855": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "bar",
+"group": 0,
+"val": "Gráficos!$DK$7:$DK$19",
+"cat": "Gráficos!$A$7:$A$19",
+"nameRef": "Gráficos!$DK$6",
+"name": "U rate with Stable Labor Force Participation",
+"color": "156082",
+"fill": "156082",
+"noline": true,
+"dash": null,
+"width": null,
+"show": true,
+"labelFmt": null,
+"labels": [],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"389259855",
+"389253615"
+]
+}
+],
+"dir": "col"
+},
+{
+"row": 384,
+"col": 7,
+"title": [
+"U rate Ex-Temporary Layoff",
+""
+],
+"axes": {
+"389253615": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "0.0%",
+"rev": false
+},
+"389259855": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "bar",
+"group": 0,
+"val": "Gráficos!$DL$7:$DL$19",
+"cat": "Gráficos!$A$7:$A$19",
+"nameRef": "Gráficos!$DL$6",
+"name": "U rate Ex-Temporary Layoff",
+"color": "156082",
+"fill": "156082",
+"noline": true,
+"dash": null,
+"width": null,
+"show": true,
+"labelFmt": null,
+"labels": [],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"389259855",
+"389253615"
+]
+}
+],
+"dir": "col"
+},
+{
+"row": 402,
+"col": 1,
+"title": [
+"Participation Rate",
+""
+],
+"axes": {
+"495338096": {
+"kind": "valAx",
+"min": 60.0,
+"max": null,
+"pos": "l",
+"fmt": "#,##0",
+"rev": false
+},
+"495338576": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$CT$7:$CT$90",
+"cat": "Gráficos!$A$7:$A$90",
+"nameRef": null,
+"name": null,
+"color": "156082",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": "#,##0.0",
+"labels": [
+{
+"i": 82,
+"fmt": null,
+"fill": null
+},
+{
+"i": 83,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"495338576",
+"495338096"
+]
+}
+],
+"dir": null
+},
+{
+"row": 402,
+"col": 7,
+"title": [
+"Employment-population ratio",
+""
+],
+"axes": {
+"797512831": {
+"kind": "valAx",
+"min": 57.0,
+"max": 61.5,
+"pos": "l",
+"fmt": "General",
+"rev": false
+},
+"23064367": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$CV$7:$CV$90",
+"cat": "Gráficos!$A$7:$A$90",
+"nameRef": null,
+"name": null,
+"color": "156082",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 83,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"23064367",
+"797512831"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$CW$7:$CW$90",
+"cat": "Gráficos!$A$7:$A$90",
+"nameRef": null,
+"name": null,
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": "sysDash",
+"width": 2.25,
+"show": false,
+"labelFmt": "#,##0.0",
+"labels": [
+{
+"i": 31,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"23064367",
+"797512831"
+]
+}
+],
+"dir": null
+},
+{
+"row": 421,
+"col": 1,
+"title": [
+"Permanent and Temporary Layoffs",
+""
+],
+"axes": {
+"1215243152": {
+"kind": "valAx",
+"min": 500.0,
+"max": 4500.0,
+"pos": "l",
+"fmt": "General",
+"rev": false
+},
+"1215242192": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$EB$7:$EB$187",
+"cat": "Gráficos!$A$7:$A$187",
+"nameRef": null,
+"name": "Permanent Layoffs",
+"color": "153D64",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 180,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1215242192",
+"1215243152"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$EC$7:$EC$187",
+"cat": "Gráficos!$A$7:$A$187",
+"nameRef": null,
+"name": "Temporary Layoffs",
+"color": "A6CAEC",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 180,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"1215242192",
+"1215243152"
+]
+}
+],
+"dir": null
+},
+{
+"row": 440,
+"col": 1,
+"title": [
+"Employed to Unemployed (3MMA, SA)",
+""
+],
+"axes": {
+"714916800": {
+"kind": "valAx",
+"min": 1300.0,
+"max": 2500.0,
+"pos": "l",
+"fmt": "0",
+"rev": false
+},
+"714927840": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$DR$7:$DR$176",
+"cat": "Gráficos!$A$7:$A$176",
+"nameRef": null,
+"name": null,
+"color": "156082",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 169,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"714927840",
+"714916800"
+]
+}
+],
+"dir": null
+},
+{
+"row": 440,
+"col": 7,
+"title": [
+"Unemployed / Not in LF to Employed (3MMA, SA)",
+""
+],
+"axes": {
+"714916800": {
+"kind": "valAx",
+"min": 5700.0,
+"max": 6800.0,
+"pos": "l",
+"fmt": "0",
+"rev": false
+},
+"714927840": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$DW$7:$DW$176",
+"cat": "Gráficos!$A$7:$A$176",
+"nameRef": null,
+"name": null,
+"color": "156082",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 169,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"714927840",
+"714916800"
+]
+}
+],
+"dir": null
+},
+{
+"row": 458,
+"col": 1,
+"title": [
+"Proxy Nominal Wage Mass (SAAR)",
+""
+],
+"axes": {
+"387386175": {
+"kind": "valAx",
+"min": null,
+"max": null,
+"pos": "l",
+"fmt": "0%",
+"rev": false
+},
+"387380895": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "bar",
+"group": 0,
+"val": "Gráficos!$BN$7:$BN$31",
+"cat": "Gráficos!$A$7:$A$31",
+"nameRef": "Gráficos!$BN$6",
+"name": "Aggregate Weekly Payrolls",
+"color": "156082",
+"fill": "156082",
+"noline": true,
+"dash": null,
+"width": null,
+"show": true,
+"labelFmt": null,
+"labels": [],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"387380895",
+"387386175"
+]
+},
+{
+"type": "line",
+"group": 1,
+"val": "Gráficos!$BO$7:$BO$31",
+"cat": "Gráficos!$A$7:$A$31",
+"nameRef": "Gráficos!$BO$6",
+"name": "Aggregate Weekly Payrolls (12M)",
+"color": "7F7F7F",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"387380895",
+"387386175"
+]
+},
+{
+"type": "line",
+"group": 1,
+"val": "Gráficos!$BP$7:$BP$31",
+"cat": "Gráficos!$A$7:$A$31",
+"nameRef": "Gráficos!$BP$6",
+"name": "Aggregate Weekly Payrolls (12M Pré Pandemia)",
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"387380895",
+"387386175"
+]
+}
+],
+"dir": "col"
+},
+{
+"row": 476,
+"col": 1,
+"title": [
+"Average Weekly Hours",
+""
+],
+"axes": {
+"560052768": {
+"kind": "valAx",
+"min": 33.4,
+"max": 35.0,
+"pos": "l",
+"fmt": "0",
+"rev": false
+},
+"560042208": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$CN$7:$CN$79",
+"cat": "Gráficos!$A$7:$A$79",
+"nameRef": null,
+"name": "Avg. Weekly Hours Private",
+"color": "156082",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": "#,##0.0",
+"labels": [
+{
+"i": 72,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"560042208",
+"560052768"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$CO$7:$CO$79",
+"cat": "Gráficos!$A$7:$A$79",
+"nameRef": null,
+"name": "Avg. Weekly Hours Nonsuper.",
+"color": "A6CAEC",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": "#,##0.0",
+"labels": [
+{
+"i": 72,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"560042208",
+"560052768"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$CP$7:$CP$79",
+"cat": "Gráficos!$A$7:$A$79",
+"nameRef": null,
+"name": "Mean 2016-19",
+"color": "156082",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.25,
+"show": false,
+"labelFmt": "#,##0.0",
+"labels": [
+{
+"i": 39,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"560042208",
+"560052768"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$CQ$7:$CQ$79",
+"cat": "Gráficos!$A$7:$A$79",
+"nameRef": null,
+"name": "Mean 2016-19",
+"color": "A6CAEC",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.25,
+"show": false,
+"labelFmt": "#,##0.0",
+"labels": [
+{
+"i": 39,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"560042208",
+"560052768"
+]
+}
+],
+"dir": null
+},
+{
+"row": 494,
+"col": 1,
+"title": [
+"Average Hourly Earnings for Production and Nonsupervisory Workers (SA)",
+""
+],
+"axes": {
+"252918544": {
+"kind": "valAx",
+"min": -0.0010000000000000002,
+"max": 0.009000000000000003,
+"pos": "l",
+"fmt": "0.0%",
+"rev": false
+},
+"252917104": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "area",
+"group": 0,
+"val": "Gráficos!$BY$7:$BY$91",
+"cat": null,
+"nameRef": null,
+"name": "Percentile 0.25 - 70s",
+"color": null,
+"fill": null,
+"noline": true,
+"dash": null,
+"width": null,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"252917104",
+"252918544"
+]
+},
+{
+"type": "area",
+"group": 0,
+"val": "Gráficos!$CA$7:$CA$91",
+"cat": null,
+"nameRef": null,
+"name": "Band",
+"color": "D0D0D0",
+"fill": "D0D0D0",
+"noline": true,
+"dash": null,
+"width": null,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": null,
+"markerColor": null,
+"smooth": false,
+"ax": [
+"252917104",
+"252918544"
+]
+},
+{
+"type": "line",
+"group": 1,
+"val": "Gráficos!$BT$7:$BT$91",
+"cat": "Gráficos!$A$7:$A$91",
+"nameRef": null,
+"name": "MoM",
+"color": "A6CAEC",
+"fill": null,
+"noline": false,
+"dash": "sysDash",
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 84,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"252917104",
+"252918544"
+]
+},
+{
+"type": "line",
+"group": 1,
+"val": "Gráficos!$BV$7:$BV$91",
+"cat": "Gráficos!$A$7:$A$91",
+"nameRef": "Gráficos!$BV$6",
+"name": "Production and Nonsupervisory (6MMA)",
+"color": "153D64",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 84,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"252917104",
+"252918544"
+]
+},
+{
+"type": "line",
+"group": 1,
+"val": "Gráficos!$BW$7:$BW$91",
+"cat": "Gráficos!$A$7:$A$91",
+"nameRef": null,
+"name": "70s Average",
+"color": "C00000",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"252917104",
+"252918544"
+]
+},
+{
+"type": "line",
+"group": 1,
+"val": "Gráficos!$BZ$7:$BZ$91",
+"cat": "Gráficos!$A$7:$A$91",
+"nameRef": null,
+"name": "10s Average",
+"color": "4EA72E",
+"fill": null,
+"noline": false,
+"dash": "sysDot",
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"252917104",
+"252918544"
+]
+}
+],
+"dir": null
+},
+{
+"row": 514,
+"col": 1,
+"title": [
+"Average Hourly Earnings Total (SA)",
+""
+],
+"axes": {
+"551028784": {
+"kind": "valAx",
+"min": 0.020000000000000004,
+"max": 0.06000000000000001,
+"pos": "l",
+"fmt": "0.0%",
+"rev": false
+},
+"551032144": {
+"kind": "dateAx",
+"min": null,
+"max": null,
+"pos": "b",
+"fmt": "[$-409]mmm\\-yy;@",
+"rev": false
+}
+},
+"series": [
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$BS$7:$BS$91",
+"cat": "Gráficos!$A$7:$A$91",
+"nameRef": null,
+"name": "6MMA (SAAR)",
+"color": "A6CAEC",
+"fill": null,
+"noline": false,
+"dash": "sysDash",
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 84,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"551032144",
+"551028784"
+]
+},
+{
+"type": "line",
+"group": 0,
+"val": "Gráficos!$BR$7:$BR$91",
+"cat": "Gráficos!$A$7:$A$91",
+"nameRef": null,
+"name": "YoY",
+"color": "153D64",
+"fill": null,
+"noline": false,
+"dash": null,
+"width": 2.25,
+"show": false,
+"labelFmt": null,
+"labels": [
+{
+"i": 84,
+"fmt": null,
+"fill": null
+}
+],
+"marker": [
+"none",
+null
+],
+"markerColor": null,
+"smooth": false,
+"ax": [
+"551032144",
+"551028784"
+]
+}
+],
+"dir": null
+}
+]

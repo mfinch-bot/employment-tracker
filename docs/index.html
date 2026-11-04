@@ -6,7 +6,8 @@
 :root{--navy:#153D64;--ink:#1f2a37;--line:#d9d9d9;--band:#DCE9F7;--grp:#E8E8E8}
 *{box-sizing:border-box}body{margin:0;background:#fff;color:var(--ink);font:13px/1.35 Aptos,Calibri,Arial,sans-serif}
 main{max-width:1120px;margin:0 auto;padding:0 16px 32px}
-header{background:var(--navy);color:#fff;text-align:center;padding:18px 12px 14px;margin-top:16px}
+nav{display:flex;gap:18px;justify-content:center;padding:12px 0 0;font-size:13px}nav a{color:#153D64;text-decoration:none;padding:2px 2px 4px;border-bottom:2px solid transparent}body[data-page=es] .n-es,body[data-page=jolts] .n-jolts{font-weight:700;border-bottom-color:#153D64}
+header{background:var(--navy);color:#fff;text-align:center;padding:18px 12px 14px;margin-top:10px}
 header h1{margin:0;font-size:20px;font-weight:700}header p{margin:6px 0 0;font-size:12px;opacity:.9}
 .tw{overflow-x:auto;margin:20px 0}table{border-collapse:collapse;margin:0 auto;font-size:13px}
 th{background:var(--navy);color:#fff;padding:5px 12px;font-weight:700;white-space:nowrap}
@@ -27,8 +28,11 @@ h2{margin:0 0 2px;text-align:center;color:var(--navy);font-size:17px;font-weight
 footer{margin-top:24px;padding-top:8px;border-top:1px solid var(--line);font-size:12px;color:#595959}
 @media(max-width:760px){.grid{grid-template-columns:1fr}.chart,.c.full .chart{height:300px}td,th{padding:3px 6px;font-size:12px}}
 @media print{.chart{break-inside:avoid}.c{break-inside:avoid}header{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
-</style></head><body><main>
-<header><h1>Employment Situation Summary</h1><p>Latest data: Sep-26 · Atualizado em 04/11/2026 15:23 (Brasília)</p></header>
+table.plain tbody tr:nth-child(even) td{background:var(--band)}
+.c.tall .chart{height:470px}
+</style></head><body data-page="es"><main>
+<nav><a href="./" class="n-es">Employment Situation</a><a href="jolts.html" class="n-jolts">JOLTS</a></nav>
+<header><h1>Employment Situation Summary</h1><p>Latest data: Sep-26 · Atualizado em 04/11/2026 16:03 (Brasília)</p></header>
 <div id="wait" hidden>Aguardando o release novo. Os dados abaixo são de Sep-26.</div>
 <div class="tw" data-title="Employment Situation Summary"><table class="t1"><thead><tr><th></th><th>Sep-25</th><th>Jul-26</th><th>Aug-26</th><th>Sep-26</th><th>Today - Feb 2020</th></tr></thead><tbody><tr class="grp"><td>Employment status</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Participation Rate</td><td>62.5</td><td>61.4</td><td>61.6</td><td>61.8</td><td>-1.5</td></tr><tr><td>Unemployment rate</td><td>4.44</td><td>4.09</td><td>4.14</td><td class=hi>4.18</td><td>0.68</td></tr><tr><td>Employment-population ratio</td><td>59.7</td><td>58.9</td><td>59.1</td><td>59.2</td><td>-1.9</td></tr><tr class="grp"><td>Unemployment rates</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>U1 - Unemployed 15 weeks or longer</td><td>1.8</td><td>1.7</td><td>1.8</td><td>1.8</td><td>0.6</td></tr><tr><td>U2 - Job losers &amp; completed temporary jobs</td><td>2.1</td><td>2.0</td><td>1.9</td><td>1.9</td><td>0.3</td></tr><tr><td>U4 - Unemployed + discouraged workers</td><td>4.7</td><td>4.4</td><td>4.4</td><td>4.4</td><td>0.7</td></tr><tr><td>U5 - Unemployed, discouraged, marginally attached</td><td>5.4</td><td>5.1</td><td>5.1</td><td>5.0</td><td>0.6</td></tr><tr><td>U6 - Unemployed, marginally attached, part-time</td><td>8.1</td><td>7.9</td><td>7.7</td><td>7.6</td><td>0.6</td></tr><tr class="grp"><td>Age</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>16-24</td><td>10.4</td><td>8.5</td><td>9.1</td><td>9.9</td><td>2.1</td></tr><tr><td>25-54</td><td>3.7</td><td>3.6</td><td>3.6</td><td>3.6</td><td>0.6</td></tr><tr><td>55+</td><td>3.2</td><td>3.1</td><td>3.0</td><td>2.6</td><td>0.0</td></tr></tbody></table></div>
 <div class="grid" id="grid"></div>
@@ -59,7 +63,21 @@ function labelOf(s,cfg,dark,n,ch){
   if(s.type==='bar'&&ch.date){lab.offset=back===0?[20,34]:back===1?[-12,40]:[0,38]}
   else if(s.type==='line'&&ch.date&&back===0){lab.offset=s._dual?[20,0]:[20,-14]}
   return lab}
+function buildScatter(ch){
+  const f=v=>(v*100).toFixed(0)+'%';
+  const series=ch.series.map(s=>({name:s.name,type:'scatter',symbolSize:s.z?10:7,z:s.z||2,itemStyle:{color:'#'+s.color},data:s.points.map(p=>({value:[p[0],p[1]],month:p[2]}))}));
+  series.push({type:'line',silent:true,data:[],markLine:{silent:true,symbol:['none','arrow'],symbolSize:10,animation:false,
+    data:ch.arrows.map(a=>[{coord:a.from,lineStyle:{color:a.color,width:2,type:'solid'},label:{show:false}},{coord:a.to}]),label:{show:false}}});
+  ch.arrows.forEach(a=>series.push({type:'scatter',silent:true,symbolSize:0,data:[{value:[a.side==='left'?a.from[0]-.002:a.from[0]+.006,a.side==='left'?.065:.0745]}],
+    label:{show:true,formatter:a.text,position:a.side==='left'?'left':'right',color:'#000',fontSize:11}}));
+  return{animation:false,grid:{left:44,right:24,top:18,bottom:58},
+    legend:{data:ch.series.map(s=>s.name),bottom:0,itemWidth:10,itemHeight:10,icon:'circle',textStyle:{color:'#153D64',fontSize:11}},
+    tooltip:{trigger:'item',formatter:p=>p.data.month?p.data.month+'<br>U: '+(p.value[0]*100).toFixed(2)+'%<br>V: '+(p.value[1]*100).toFixed(2)+'%':''},
+    xAxis:{type:'value',min:ch.xMin,max:ch.xMax,interval:.02,axisLabel:{formatter:f,color:'#153D64'},splitLine:{lineStyle:{color:'#d9d9d9'}},axisTick:{show:false}},
+    yAxis:{type:'value',min:0,interval:.01,axisLabel:{formatter:f,color:'#153D64'},splitLine:{lineStyle:{color:'#d9d9d9'}},axisLine:{show:false},axisTick:{show:false}},series}
+}
 function build(ch){
+  if(ch.scatter)return buildScatter(ch);
   const axes=ch.axes.map((a,i)=>({type:'value',min:a.min,max:a.max,position:i?'right':'left',scale:a.min!=null,boundaryGap:(a.min==null&&a.max==null)?['6%','8%']:undefined,
     splitLine:{show:!i,lineStyle:{color:'#d9d9d9'}},axisLine:{show:false},axisTick:{show:false},
     axisLabel:{formatter:axisFmt(a),color:i?'#6ba5d9':'#153D64',fontSize:11,hideOverlap:true}}));
@@ -117,6 +135,9 @@ function chartImage(c,inst){
 function cellText(v,f){if(v==null)return'';if(typeof v!=='number')return String(v);
   return f&&f.includes('%')?(v*100).toFixed(2)+'%':v.toFixed(2)}
 function chartData(c){
+  if(c.scatter){const rows=[['Group','Month','Unemployment rate','Vacancy rate']];
+    c.series.forEach(s=>s.points.forEach(p=>rows.push([s.name,p[2],(p[0]*100).toFixed(2)+'%',(p[1]*100).toFixed(2)+'%'])));
+    return navigator.clipboard.writeText(rows.map(r=>r.join('\t')).join('\n'))}
   const sers=c.series.filter(s=>!['Band','Percentile 0.25 - 70s'].includes(s.name));
   const head=[''].concat(sers.map(s=>s.name||c.title[0]));
   const rows=(c.cats||[]).map((m,i)=>[m].concat(sers.map(s=>{const v=s.data[i];return cellText(v,ch_fmt(c,s))})));
@@ -138,7 +159,7 @@ document.querySelectorAll('.tw').forEach(w=>{const tb=w.querySelector('table');
   w.parentNode.insertBefore(actions(()=>tableImage(tb,w.dataset.title),()=>navigator.clipboard.writeText(tableRows(tb).map(r=>r.join('\t')).join('\n')),'tb','Copiar tabela'),w)});
 const rows={};CH.forEach(c=>{(rows[c.row]=rows[c.row]||[]).push(c)});
 CH.forEach((c,idx)=>{
-  const d=document.createElement('section');d.className='c'+(rows[c.row].length<2?' full':'');
+  const d=document.createElement('section');d.className='c'+(rows[c.row].length<2?' full':'')+(c.tall?' tall':'');
   const h=document.createElement('h2');h.textContent=c.title[0]||'';d.appendChild(h);
   if(c.title[1]){const p=document.createElement('p');p.className='sub';p.textContent=c.title[1];d.appendChild(p)}
   const e=document.createElement('div');e.className='chart';

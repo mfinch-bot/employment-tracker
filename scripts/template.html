@@ -86,7 +86,7 @@ function build(ch){
       symbol:'circle',symbolSize:mark?7:1,showSymbol:true,showAllSymbol:true,
       lineStyle:{color:col,width:s.width||2.25,type:DASH[s.dash]||'solid'},itemStyle:{color:col},z:s.labels.length?4:3}
   });
-  return{animation:false,grid:{left:ch.horizontal?150:44,right:ch.axes.length>1?52:44,top:18,bottom:legend.length?(ch.date?(n>30?76:72):(n>12?64:52)):(ch.date?(n>30?54:48):(n>12?44:30)),containLabel:false},
+  return{animation:false,grid:{left:ch.horizontal?205:44,right:ch.axes.length>1?52:44,top:18,bottom:legend.length?(ch.date?(n>30?76:72):(n===11?92:n>12?64:52)):(ch.date?(n>30?54:48):(n>12?44:30)),containLabel:false},
     legend:legend.length?{data:legend,bottom:0,itemWidth:22,itemHeight:8,icon:undefined,textStyle:{color:'#153D64',fontSize:11}}:undefined,
     tooltip:{trigger:'axis',valueFormatter:v=>v==null?'':(Math.abs(v)<1&&ch.axes[0].fmt&&ch.axes[0].fmt.includes('%')?(v*100).toFixed(2)+'%':(Math.abs(v)<100?Number(v).toFixed(2):Math.round(v)))},
     xAxis:ch.horizontal?{...axes[0],position:'top'}:cat,yAxis:ch.horizontal?cat:axes,series}

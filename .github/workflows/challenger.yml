@@ -1,4 +1,5 @@
 name: challenger
+# Publica so o Challenger; o payroll ignora mudancas em scripts/challenger*
 on:
   schedule:
     # 7:05 ET no horario de verao (11h UTC) e no de inverno (12h UTC)

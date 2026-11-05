@@ -1,0 +1,23 @@
+name: f1
+on:
+  push:
+    branches: [main]
+    paths: ["tools/f1.py"]
+permissions:
+  contents: write
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - run: python3 tools/f1.py
+      - run: |
+          git config user.name "employment-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/f1.json
+          git commit -m "Levantamento"
+          git pull --rebase origin main
+          git push

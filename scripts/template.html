@@ -99,7 +99,7 @@ function build(ch){
     if(s.noline&&s.marker&&s.marker[0]==='dash'&&s.type==='line'){
       return{name:s.name,type:'scatter',data:data,symbol:'rect',symbolSize:[Math.max(10,560/(n||12)*.55),4],itemStyle:{color:'#'+(s.markerColor||s.color)},yAxisIndex:s.yAxis,z:5}}
     if(s.type==='bar'){
-      return{name:s.name,type:'bar',data:data,itemStyle:{color:col},barCategoryGap:ch.horizontal?'45%':'65%',barGap:'0%',
+      return{name:s.name,type:'bar',stack:s.stack||undefined,data:data,itemStyle:{color:col},barCategoryGap:ch.horizontal?'45%':'65%',barGap:'0%',
         label:s.show?{show:true,position:'outside',fontSize:11,color:'#153D64',formatter:p=>p.value==null?'':fmtNum(p.value,s.fmt||ch.axes[0].fmt)}:undefined,labelLayout:{hideOverlap:false}}}
     if(s.type==='area'){
       return{name:s.name,type:'line',stack:'band',data:data,symbol:'none',lineStyle:{width:0},areaStyle:s.fill?{color:'#'+s.fill,opacity:.8}:{opacity:0},z:1}}

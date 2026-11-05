@@ -94,6 +94,33 @@ def validate(D, month, site=None):
     return errs
 
 
+def vintages(history, bls):
+    """Primeira leitura de cada mes, do Revelio e do payroll, e o payroll na versao mais recente."""
+    def table(text, field):
+        V = {}
+        for r in csv.DictReader(io.StringIO(text)):
+            if r[field]:
+                V.setdefault(r["release"], {})[r["month"]] = float(r[field].replace(",", ""))
+        return V
+    def first(V):
+        out = {}
+        for rel in sorted(V):
+            for m, v in V[rel].items():
+                p = calc.shift(m, -1)
+                if m not in out and p in V[rel]:
+                    out[m] = (v - V[rel][p]) / 1000
+        return out
+    R, B = table(history, "employment_sa"), table(bls, "employment_sa")
+    # O arquivo do BLS traz so os meses recentes de cada divulgacao: vale a ultima em que o mes e o anterior aparecem
+    current = {}
+    for rel in sorted(B):
+        for m, v in B[rel].items():
+            p = calc.shift(m, -1)
+            if p in B[rel]:
+                current[m] = (v - B[rel][p]) / 1000
+    return {"revelio_first": first(R), "bls_first": first(B), "bls_current": current}
+
+
 def fetch(month, site=None):
     """Baixa os CSVs da pasta do mes. So chamar para mes divulgado ou depois de 8:30 ET do dia do release."""
     folder = month.replace("-", "")
@@ -102,6 +129,14 @@ def fetch(month, site=None):
     errs = validate(D, month, site)
     if errs:
         raise ValueError("; ".join(errs))
+    try:  # as comparacoes nunca atrapalham o headline
+        D["vintages"] = vintages(get(FILES.format(folder, "employment_national_history.csv")).decode("utf-8-sig"),
+                                 get(FILES.format(folder, "bls_revisions.csv")).decode("utf-8-sig"))
+    except Exception as e:
+        print("comparacoes nao atualizadas:", type(e).__name__, e)
+        old = load()
+        if old and old.get("vintages"):
+            D["vintages"] = old["vintages"]
     return D
 
 
@@ -204,10 +239,46 @@ def charts(D):
     return out
 
 
+def comparison_charts(D):
+    """Primeira leitura contra versao atual, e Revelio contra payroll."""
+    bars, line = adp.bars, adp.line
+    V = D["vintages"]
+    S = series(D)
+    months = sorted(S["total"])[-24:]
+    cats = [bd.month_label(m) for m in months]
+    n = len(months)
+    mark = [{"i": n - 1, "fmt": None, "fill": None}]
+    first = {"row": 20, "col": 1, "title": ["Revelio: first print vs. current"], "cats": cats, "date": True, "horizontal": False,
+             "series": [bars("First print", [V["revelio_first"].get(m) for m in months], "A6CAEC", show=False),
+                        bars("Current", [S["total"][m] for m in months], "153D64", show=False)],
+             "axes": [{"min": None, "max": None, "fmt": "0"}]}
+    prints = {"row": 21, "col": 1, "title": ["First print: Revelio vs. Payroll"], "cats": cats, "date": True, "horizontal": False,
+              "series": [bars("Revelio", [V["revelio_first"].get(m) for m in months], "156082", show=False),
+                         bars("Payroll", [V["bls_first"].get(m) for m in months], "BFBFBF", show=False)],
+              "axes": [{"min": None, "max": None, "fmt": "0"}]}
+    def mma_of(s, m):
+        vals = [s.get(calc.shift(m, -i)) for i in range(3)]
+        return None if None in vals else sum(vals) / 3
+    long = [m for m in sorted(S["total"]) if m >= "2023-01"]
+    k = len(long)
+    payroll = [mma_of(V["bls_current"], m) for m in long]
+    last_payroll = max((i for i, v in enumerate(payroll) if v is not None), default=k - 1)
+    avg = {"row": 22, "col": 1, "title": ["Revelio vs. Payroll (3MMA, current)"], "cats": [bd.month_label(m) for m in long], "date": True,
+           "horizontal": False, "series": [line("Revelio", [mma_of(S["total"], m) for m in long], "C00000", labels=[{"i": k - 1, "fmt": None, "fill": None}]),
+                                           line("Payroll", payroll, "153D64", labels=[{"i": last_payroll, "fmt": None, "fill": None}])],
+           "axes": [{"min": None, "max": None, "fmt": "0"}]}
+    return [first, prints, avg]
+
+
 def render(D, published=None):
     as_of = max(D["national"])
     published = published or dt.datetime.now(BRT)
-    page = bd.fill_template("Revelio Employment", "revelio", "state_revelio.json", "", "", as_of, published, charts(D))
+    payload = charts(D)
+    try:
+        payload[1:1] = comparison_charts(D)
+    except Exception as e:  # as comparacoes nunca atrapalham o headline
+        print("comparacoes ficaram de fora:", type(e).__name__, e)
+    page = bd.fill_template("Revelio Employment", "revelio", "state_revelio.json", "", "", as_of, published, payload)
     (ROOT / "docs/revelio.html").write_text(page, encoding="utf-8")
     json.dump({"as_of": as_of, "published": published.isoformat(timespec="seconds"), "next_release": None},
               open(ROOT / "docs/state_revelio.json", "w"))

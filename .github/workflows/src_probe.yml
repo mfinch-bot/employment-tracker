@@ -1,0 +1,25 @@
+name: src-probe
+on:
+  push:
+    branches: [main]
+    paths: ["tools/src_probe.py"]
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - env:
+          BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+        run: python3 tools/src_probe.py
+      - run: |
+          git config user.name "employment-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/probe
+          git commit -m "Teste de fontes"
+          git pull --rebase origin main
+          git push

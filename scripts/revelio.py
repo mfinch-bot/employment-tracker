@@ -11,7 +11,7 @@ import csv, datetime as dt, io, json, os, pathlib, re, sys, time, urllib.request
 from zoneinfo import ZoneInfo
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-import adp, build_dashboard as bd, calc
+import adp, build_dashboard as bd, calc, revelio_extras as extras
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 ET = ZoneInfo("America/New_York")
@@ -137,6 +137,8 @@ def fetch(month, site=None):
         old = load()
         if old and old.get("vintages"):
             D["vintages"] = old["vintages"]
+    old = load()
+    D["extras"] = extras.fetch(get, month, old.get("extras") if old else None)
     return D
 
 
@@ -174,7 +176,7 @@ def charts(D):
     as_of = max(D["national"])
     y1 = int(as_of[:4])
     M = calc.MONTHS
-    months = sorted(S["total"])
+    months = sorted(S["total"])[-36:]
     n = len(months)
     cats = [bd.month_label(m) for m in months]
     def history(title, row, key, name, lo, hi, yellow=False):
@@ -184,7 +186,7 @@ def charts(D):
         return {"row": row, "col": 1, "title": [title], "cats": cats, "date": True, "horizontal": False,
                 "series": [b, line("3MMA", [mma(S[key], m) for m in months], "153D64", labels=[{"i": n - 1, "fmt": None, "fill": None}])],
                 "axes": [{"min": lo, "max": hi, "fmt": "General"}]}
-    out = [history("Nonfarm Payroll", 19, "total", "Nonfarm Payroll Increase", -200, 1000, yellow=True)]
+    out = [history("Nonfarm Payroll", 19, "total", "Nonfarm Payroll Increase", None, None, yellow=True)]
     def year(key, y):
         return [S[key].get(f"{y}-{i:02d}") for i in range(1, 13)]
     out.append({"row": 38, "col": 1, "title": ["Nonfarm Payroll Increase NSA"], "cats": M, "date": False, "horizontal": False,
@@ -195,10 +197,10 @@ def charts(D):
     out.append({"row": 38, "col": 7, "title": [f"Nonfarm Payroll Increase NSA - {M[int(mm) - 1]}"], "cats": years, "date": False,
                 "horizontal": False, "series": [bars(None, [S["total_nsa"][f"{y}-{mm}"] for y in years], "156082")],
                 "axes": [{"min": None, "max": None, "fmt": "0"}]})
-    out.append(history("Private Payroll", 57, "private", "Private Payroll Increase", -200, 1000))
-    out.append(history("Payroll Ex Government & Health", 74, "ex", "Payroll Ex Government & Health Increase", -200, 1000))
-    out.append(history("Government Payroll", 92, "government", "Government Payroll Increase", -150, 150))
-    out.append(history("Health Payroll", 110, "health", "Health Payroll Increase", -30, 150))
+    out.append(history("Private Payroll", 57, "private", "Private Payroll Increase", None, None))
+    out.append(history("Payroll Ex Government & Health", 74, "ex", "Payroll Ex Government & Health Increase", None, None))
+    out.append(history("Government Payroll", 92, "government", "Government Payroll Increase", None, None))
+    out.append(history("Health Payroll", 110, "health", "Health Payroll Increase", None, None))
     names = [a for a, _ in SECTORS]
     out.append({"row": 128, "col": 1, "title": ["Payroll Breakdown by Sector"], "cats": names, "date": False, "horizontal": True,
                 "series": [bars(M[int(mm) - 1], [S[a][as_of] for a in names], "156082"),
@@ -218,14 +220,14 @@ def charts(D):
         qseries.append(bars(label, [sum(S[a][m] for m in ms) / len(ms) for a in names], color, show=False))
     out.append({"row": 147, "col": 1, "title": ["Payroll by Sector", "(Quarterly average)"], "cats": names, "date": False,
                 "horizontal": False, "series": qseries, "axes": [{"min": None, "max": None, "fmt": "0"}]})
-    ms3 = months[2:]
+    ms3 = months
     def imm(key):
         return [mma(S[key], m) for m in ms3]
     out.append({"row": 165, "col": 1, "title": ["Payroll sectors: highest vs. lowest share of immigrants (3mma)"],
                 "cats": [bd.month_label(m) for m in ms3], "date": True, "horizontal": False,
                 "series": [line("High immigrant share", imm("high"), "153D64", labels=[{"i": len(ms3) - 1, "fmt": None, "fill": None}]),
                            line("Low immigrant share", imm("low"), "A6CAEC", labels=[{"i": len(ms3) - 1, "fmt": None, "fill": None}])],
-                "axes": [{"min": -50, "max": 260, "fmt": "0"}]})
+                "axes": [{"min": None, "max": None, "fmt": "0"}]})
     blocks = [("Payroll Employment", "total"), ("Private Payroll", "private"), ("Mining and Logging", "Mining and Logging"),
               ("Construction", "Construction"), ("Manufacturing", "Manufacturing"),
               ("Trade, Transportation, and Utilities", "Trade, Transportation, and Utilities"), ("Information", "Information"),
@@ -247,9 +249,10 @@ def comparison_charts(D):
     months = sorted(S["total"])[-24:]
     cats = [bd.month_label(m) for m in months]
     recent = months[-12:]
-    first = {"row": 20, "col": 1, "title": ["Revelio: first print vs. current"], "cats": cats, "date": True, "horizontal": False,
-             "series": [bars("First print", [V["revelio_first"].get(m) for m in months], "A6CAEC", show=False),
-                        bars("Current", [S["total"][m] for m in months], "153D64", show=False)],
+    first = {"row": 20, "col": 1, "title": ["Revelio: first print vs. current"], "cats": [bd.month_label(m) for m in recent],
+             "date": True, "horizontal": False,
+             "series": [bars("First print", [V["revelio_first"].get(m) for m in recent], "A6CAEC"),
+                        bars("Current", [S["total"][m] for m in recent], "153D64")],
              "axes": [{"min": None, "max": None, "fmt": "0"}]}
     prints = {"row": 21, "col": 1, "title": ["First print: Revelio vs. Payroll"], "cats": [bd.month_label(m) for m in recent],
               "date": True, "horizontal": False,
@@ -270,6 +273,29 @@ def comparison_charts(D):
     return [first, prints, avg]
 
 
+def summary_table(D):
+    S = series(D)
+    as_of = max(S["total"])
+    months = [calc.shift(as_of, -i) for i in range(3, -1, -1)]
+    groups = [("Payroll", [("Nonfarm Payroll", "total"), ("Private", "private"), ("Ex Government & Health", "ex"),
+                           ("Government", "government"), ("Health", "health")]),
+              ("Sector", [(a, a) for a, _ in SECTORS if a != "Government"])]
+    head = "".join(f"<th>{bd.month_label(m)}</th>" for m in months) + "<th>3MMA</th><th>12M avg</th>"
+    out = []
+    def fmt(v):
+        return "" if v is None else f"{v:.1f}"
+    for g, items in groups:
+        out.append(f'<tr class="grp"><td>{g}</td>' + "<td></td>" * 6 + "</tr>")
+        for name, key in items:
+            s = S[key]
+            vals = [s.get(m) for m in months]
+            tds = "".join(f"<td{' class=hi' if key == 'total' and j == 3 else ''}>{fmt(v)}</td>" for j, v in enumerate(vals))
+            last12 = [s.get(calc.shift(as_of, -i)) for i in range(12)]
+            avg12 = None if None in last12 else sum(last12) / 12
+            out.append(f"<tr><td>{name}</td>{tds}<td>{fmt(mma(s, as_of))}</td><td>{fmt(avg12)}</td></tr>")
+    return f'<table class="t1"><thead><tr><th>Monthly change (thousands, SA)</th>{head}</tr></thead><tbody>{"".join(out)}</tbody></table>'
+
+
 def render(D, published=None):
     as_of = max(D["national"])
     published = published or dt.datetime.now(BRT)
@@ -278,7 +304,23 @@ def render(D, published=None):
         payload[1:1] = comparison_charts(D)
     except Exception as e:  # as comparacoes nunca atrapalham o headline
         print("comparacoes ficaram de fora:", type(e).__name__, e)
-    page = bd.fill_template("Revelio Employment", "revelio", "state_revelio.json", "", "", as_of, published, payload)
+    row = 1000
+    for group in extras.sections(D.get("extras") or {}):
+        col = 1
+        for c in group:
+            c["row"], c["col"] = row, col
+            payload.append(c)
+            if c.get("tall") or col == 7 or c is group[-1]:
+                row += 1
+                col = 1
+            else:
+                col = 7
+    try:
+        table = summary_table(D)
+    except Exception as e:
+        print("tabela ficou de fora:", type(e).__name__, e)
+        table = ""
+    page = bd.fill_template("Revelio Employment", "revelio", "state_revelio.json", table, "", as_of, published, payload)
     (ROOT / "docs/revelio.html").write_text(page, encoding="utf-8")
     json.dump({"as_of": as_of, "published": published.isoformat(timespec="seconds"), "next_release": None},
               open(ROOT / "docs/state_revelio.json", "w"))

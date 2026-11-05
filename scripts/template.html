@@ -16,7 +16,7 @@ table.t1{width:min(720px,100%)}table.t1 tr:nth-child(even):not(.grp) td{backgrou
 tr.grp td{background:var(--grp);text-align:center!important}td.hi{background:#FFFF00!important;font-weight:700}
 table.t1 th:last-child{font-style:italic;white-space:normal;width:84px}
 table.t2{width:min(720px,100%)}table.t2 tbody tr:nth-child(even) td{background:var(--band)}table.t2 .sup th:not(:last-child){background:transparent}
-.grid{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:22px 24px}.c{min-width:0}.c.full{grid-column:1/-1}
+.sec{grid-column:1/-1;margin:14px 0 -6px;padding:7px 12px;background:var(--navy);color:#fff;font-size:15px;font-weight:700;text-align:center}.grid{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:22px 24px}.c{min-width:0}.c.full{grid-column:1/-1}
 .chart{width:100%;height:340px}.c.full .chart{height:360px}
 h2{margin:0 0 2px;text-align:center;color:var(--navy);font-size:17px;font-weight:700}.c:not(.full) h2{font-size:15px}
 .sub{margin:0;text-align:center;color:var(--navy);font-weight:700;font-size:13px}
@@ -159,6 +159,7 @@ document.querySelectorAll('.tw').forEach(w=>{const tb=w.querySelector('table');
   w.parentNode.insertBefore(actions(()=>tableImage(tb,w.dataset.title),()=>navigator.clipboard.writeText(tableRows(tb).map(r=>r.join('\t')).join('\n')),'tb','Copiar tabela'),w)});
 const rows={};CH.forEach(c=>{(rows[c.row]=rows[c.row]||[]).push(c)});
 CH.forEach((c,idx)=>{
+  if(c.section){const t=document.createElement('h3');t.className='sec';t.textContent=c.section;grid.appendChild(t)}
   const d=document.createElement('section');d.className='c'+(rows[c.row].length<2?' full':'')+(c.tall?' tall':'');
   const h=document.createElement('h2');h.textContent=c.title[0]||'';d.appendChild(h);
   if(c.title[1]){const p=document.createElement('p');p.className='sub';p.textContent=c.title[1];d.appendChild(p)}

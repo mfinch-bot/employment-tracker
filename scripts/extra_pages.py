@@ -27,9 +27,16 @@ MONTHS3 = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split()
 
 
 def get(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; employment-tracker)", "Cache-Control": "no-cache"})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return r.read()
+    # Sem Cache-Control: o site do DOL recusa e o da FRED nao responde
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; employment-tracker)", "Accept": "*/*"})
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(req, timeout=40) as r:
+                return r.read()
+        except Exception:
+            if attempt == 2:
+                raise
+            time.sleep(5)
 
 
 def fred(series):
@@ -85,8 +92,9 @@ def fetch_bls(ids, old):
     out = dict(old or {})
     if not key:
         return out
-    for start, end in ((2006, 2026), ):
-        body = {"seriesid": list(ids.values()), "startyear": str(start), "endyear": str(dt.date.today().year), "registrationkey": key}
+    for end in (dt.date.today().year, ):
+        # A API aceita no maximo 20 anos por consulta
+        body = {"seriesid": list(ids.values()), "startyear": str(end - 19), "endyear": str(end), "registrationkey": key}
         req = urllib.request.Request("https://api.bls.gov/publicAPI/v2/timeseries/data/", json.dumps(body).encode(), {"Content-Type": "application/json"})
         with urllib.request.urlopen(req, timeout=60) as r:
             J = json.load(r)

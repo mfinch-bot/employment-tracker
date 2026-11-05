@@ -1,13 +1,20 @@
 """Levantamento unico: posicao das palavras nas paginas das tabelas 2, 4 e 7 de cada relatorio (sera apagado)."""
 import io, json, pathlib, re, urllib.request
 import pdfplumber
-B = "https://www.challengergray.com/wp-json/wp/v2/posts?categories=61&per_page=100&_fields=date_gmt,content&page="
+B = "https://www.challengergray.com/wp-json/wp/v2/posts?categories=61&per_page=30&_fields=date_gmt,content&page="
 def get(u):
     r = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0 (compatible; employment-tracker)"})
-    with urllib.request.urlopen(r, timeout=60) as x:
-        return x.read()
+    import time
+    for tent in range(4):
+        try:
+            with urllib.request.urlopen(r, timeout=60) as x:
+                return x.read()
+        except Exception as e:
+            print("tentativa", tent, e)
+            time.sleep(20)
+    raise RuntimeError(u)
 out = []
-for page in (1, 2, 3):
+for page in (1,):
     for p in json.loads(get(B + str(page))):
         l = re.findall(r'href="([^"]+\.pdf)"', p["content"]["rendered"])
         if not l:

@@ -1,7 +1,7 @@
 """Pagina do Challenger: le o relatorio mensal direto do site da Challenger, Gray & Christmas.
 
 Modos:
-  --watch  consulta o site a partir de 7:29:30 ET; nunca publica antes de 7:30 ET
+  --watch  consulta o site a partir de 5:25 ET e publica assim que o relatorio aparecer
   --once   confere uma vez e publica se houver mes novo
 """
 import datetime as dt, html, io, json, os, pathlib, re, sys, time, urllib.request
@@ -17,8 +17,7 @@ POSTS = "https://www.challengergray.com/wp-json/wp/v2/posts?categories=61&per_pa
 # Abr-24 corrigido em 04/11/2026: 64.789 (relatorios de mai-24 e mai-25), a base trazia o valor de abr-25
 MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
                "November", "December"]
-OFFICIAL = dt.time(7, 30)
-START = dt.time(7, 29, 30)
+START = dt.time(5, 25)
 STOP = dt.time(8, 30)
 DATA = ROOT / "data/challenger.json"
 
@@ -192,7 +191,7 @@ def watch():
         return 0
     if now.time() >= STOP:
         return once()
-    if now.time() < dt.time(6, 45):
+    if now.time() < dt.time(5, 15):
         print("Cedo demais; a proxima rodada assume.")
         output(changed="false")
         return 0
@@ -204,8 +203,6 @@ def watch():
             month, rec = latest_report(expected)
             if month >= expected:
                 first_seen = dt.datetime.now(BRT)
-                while dt.datetime.now(ET).time() < OFFICIAL:
-                    time.sleep(1)
                 publish(data, month, rec, first_seen)
                 return 0
         except Exception as e:

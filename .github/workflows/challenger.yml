@@ -2,10 +2,11 @@ name: challenger
 # Publica so o Challenger; o payroll ignora mudancas em scripts/challenger*
 on:
   schedule:
-    # 7:05 ET no horario de verao (11h UTC) e no de inverno (12h UTC)
+    # 5:20 ET no horario de verao (9h UTC) e no de inverno (10h UTC); o relatorio entra no site as 5:30 ET
+    - cron: "20 9 * * 1-5"
+    - cron: "20 10 * * 1-5"
     - cron: "5 11 * * 1-5"
     - cron: "5 12 * * 1-5"
-    - cron: "20 12 * * 1-5"
     # Rodadas de seguranca
     - cron: "45 13 * * 1-5"
     - cron: "45 16 * * 1-5"
@@ -24,7 +25,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 100
+    timeout-minutes: 210
     environment:
       name: github-pages
     steps:

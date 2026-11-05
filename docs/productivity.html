@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Productivity and Costs</title>
+<style>
+:root{--navy:#153D64;--ink:#1f2a37;--line:#d9d9d9;--band:#DCE9F7;--grp:#E8E8E8}
+*{box-sizing:border-box}body{margin:0;background:#fff;color:var(--ink);font:13px/1.35 Aptos,Calibri,Arial,sans-serif}
+main{max-width:1120px;margin:0 auto;padding:0 16px 32px}
+nav{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;padding:12px 0 0;font-size:13px}nav a{color:#153D64;text-decoration:none;padding:2px 2px 4px;border-bottom:2px solid transparent}body[data-page=es] .n-es,body[data-page=jolts] .n-jolts,body[data-page=adp] .n-adp,body[data-page=challenger] .n-challenger,body[data-page=revelio] .n-revelio,body[data-page=claims] .n-claims,body[data-page=eci] .n-eci,body[data-page=productivity] .n-productivity,body[data-page=wagetracker] .n-wagetracker,body[data-page=sce] .n-sce{font-weight:700;border-bottom-color:#153D64}
+header{background:var(--navy);color:#fff;text-align:center;padding:18px 12px 14px;margin-top:10px}
+header h1{margin:0;font-size:20px;font-weight:700}header p{margin:6px 0 0;font-size:12px;opacity:.9}
+.tw{overflow-x:auto;margin:20px 0}table{border-collapse:collapse;margin:0 auto;font-size:13px}
+th{background:var(--navy);color:#fff;padding:5px 12px;font-weight:700;white-space:nowrap}
+td{padding:3px 12px;text-align:center;white-space:nowrap}td:first-child{text-align:left}
+table.t1{width:min(720px,100%)}table.t1 tr:nth-child(even):not(.grp) td{background:var(--band)}
+tr.grp td{background:var(--grp);text-align:center!important}td.hi{background:#FFFF00!important;font-weight:700}
+table.t1 th:last-child{font-style:italic;white-space:normal;width:84px}
+table.t2{width:min(720px,100%)}table.t2 tbody tr:nth-child(even) td{background:var(--band)}table.t2 .sup th:not(:last-child){background:transparent}
+.sec{grid-column:1/-1;margin:14px 0 -6px;padding:7px 12px;background:var(--navy);color:#fff;font-size:15px;font-weight:700;text-align:center}.grid{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:22px 24px}.c{min-width:0}.c.full{grid-column:1/-1}
+.chart{width:100%;height:340px}.c.full .chart{height:360px}
+h2{margin:0 0 2px;text-align:center;color:var(--navy);font-size:17px;font-weight:700}.c:not(.full) h2{font-size:15px}
+.sub{margin:0;text-align:center;color:var(--navy);font-weight:700;font-size:13px}
+#wait{margin-top:10px;padding:8px 12px;background:#FFF4CC;border:1px solid #E0C050;text-align:center;font-weight:700}
+.act{display:flex;justify-content:flex-end;gap:6px;margin:2px 0 4px}.act.tb{max-width:720px;margin:0 auto 6px}
+.act button{font:11px Aptos,Calibri,Arial,sans-serif;color:#12161b;background:#fcfcfb;border:1px solid #c2c6cb;border-radius:3px;padding:3px 8px;cursor:pointer}
+.act button:hover{background:#eef2f6}.act button.ok{background:#DCE9F7;border-color:#153D64}
+@media print{.act{display:none}}
+footer{margin-top:24px;padding-top:8px;border-top:1px solid var(--line);font-size:12px;color:#595959}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.chart,.c.full .chart{height:300px}td,th{padding:3px 6px;font-size:12px}}
+@media print{.chart{break-inside:avoid}.c{break-inside:avoid}header{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+table.plain tbody tr:nth-child(even) td{background:var(--band)}
+.c.tall .chart{height:470px}
+</style></head><body data-page="productivity"><main>
+<nav><a href="./" class="n-es">Employment Situation</a><a href="jolts.html" class="n-jolts">JOLTS</a><a href="adp.html" class="n-adp">ADP</a><a href="challenger.html" class="n-challenger">Challenger</a><a href="revelio.html" class="n-revelio">Revelio</a><a href="claims.html" class="n-claims">Claims</a><a href="eci.html" class="n-eci">ECI</a><a href="productivity.html" class="n-productivity">Productivity</a><a href="wagetracker.html" class="n-wagetracker">Wage Tracker</a><a href="sce.html" class="n-sce">SCE</a></nav>
+<header><h1>Productivity and Costs</h1><p>Latest data: 4Q25 · Atualizado em 05/11/2026 14:11 (Brasília)</p></header>
+<div id="wait" hidden>Aguardando o release novo. Os dados abaixo são de Jan-00.</div>
+
+<div class="grid" id="grid"></div>
+
+<footer>Fonte: BLS, Mar Asset Management</footer>
+</main>
+<script src="echarts.min.js"></script>
+<script>
+const CH=[{"row":10,"col":1,"title":["Unit Labor Costs and Productivity, Nonfarm Business (YoY, %)"],"cats":["1Q15","2Q15","3Q15","4Q15","1Q16","2Q16","3Q16","4Q16","1Q17","2Q17","3Q17","4Q17","1Q18","2Q18","3Q18","4Q18","1Q19","2Q19","3Q19","4Q19","1Q20","2Q20","3Q20","4Q20","1Q21","2Q21","3Q21","4Q21","1Q22","2Q22","3Q22","4Q22","1Q23","2Q23","3Q23","4Q23","1Q24","2Q24","3Q24","4Q24","1Q25","2Q25","3Q25","4Q25"],"date":true,"horizontal":false,"series":[{"name":"Unit labor costs","type":"line","data":[0.48968243264273514,2.101096224116916,2.7712823105605855,1.7435279701762063,0.7598517463168752,0.6746403118154776,0.4202154372802802,0.40111045336708173,1.6342715452319245,1.8949260927747735,2.2892660672184872,2.4987038863079514,1.9275748044197183,1.8747243052492202,2.087366047374828,1.9904987652362038,3.242206045260332,2.1029738825798505,0.3293781887131697,0.6038741296822137,1.8575999693433598,3.447544696641125,1.432036706900086,4.0287269106972,0.3969112404887065,0.8077740096150254,5.989185658992913,3.3077816492450562,6.128739121066484,5.537943973604187,5.280136284966064,4.134550523901592,2.784128525400531,2.776050651977835,1.3633546787853668,1.9078958732790863,2.3986808543529303,1.7902028782985857,1.6804225256436434,1.9433685620089625,2.159655126140625,1.6850546617334317,1.4589092002304849,2.178178311329848],"color":"C00000","fill":null,"dash":null,"width":2.25,"noline":false,"marker":["none",null],"markerColor":null,"show":false,"labels":[{"i":43,"fmt":"0.0","fill":null}],"fmt":"0.0","yAxis":0},{"name":"Productivity","type":"line","data":[1.7507842054253597,1.5924786961968973,1.0122579717881663,0.7334535153232125,0.5817466739043597,0.1528787060346204,0.21444832913244394,1.5175841369507115,1.2494272185733957,1.2394801917225529,1.7149579627394829,1.7729246204833293,1.9380078847855753,1.8957631803789399,1.3699722814924264,0.4503568211736919,0.9678469598161099,1.5783606751437862,2.4206239918165062,3.564038389531543,2.2855188587062703,6.60477221742044,7.070076539676751,5.229156161099113,6.645076854001286,1.9640709834930492,-0.2502444143473448,1.0831924339279597,-1.098221883817796,-2.088842827531978,-1.4593748876020607,-1.4114868914192669,0.16574735755237047,1.773884478510812,2.9838761189535434,3.4640125568187186,3.413447627314814,3.451862212419532,3.107417219716635,2.5789875215938673,2.2655136534140086,2.4058794980239773,2.662289672241025,2.432081246046258],"color":"153D64","fill":null,"dash":null,"width":2.25,"noline":false,"marker":["none",null],"markerColor":null,"show":false,"labels":[{"i":43,"fmt":"0.0","fill":null}],"fmt":"0.0","yAxis":0}],"axes":[{"min":null,"max":null,"fmt":"General"}]},{"row":20,"col":1,"title":["Unit Labor Costs and Productivity (QoQ, SAAR, %)"],"cats":["1Q22","2Q22","3Q22","4Q22","1Q23","2Q23","3Q23","4Q23","1Q24","2Q24","3Q24","4Q24","1Q25","2Q25","3Q25","4Q25"],"date":true,"horizontal":false,"series":[{"name":"Unit labor costs","type":"bar","data":[7.8,3.2,7.2,-1.4,2.3,3.2,1.4,0.8,4.3,0.8,1.0,1.8,5.2,-1.1,0.1,4.7],"color":"156082","fill":"156082","dash":null,"width":null,"noline":true,"marker":null,"markerColor":null,"show":true,"labels":[],"fmt":"0.0","yAxis":0},{"name":"Productivity","type":"bar","data":[-4.9,-2.9,0.0,2.3,1.4,3.5,4.8,4.2,1.2,3.6,3.4,2.1,-0.1,4.2,4.5,1.2],"color":"A6CAEC","fill":"A6CAEC","dash":null,"width":null,"noline":true,"marker":null,"markerColor":null,"show":true,"labels":[],"fmt":"0.0","yAxis":0}],"axes":[{"min":null,"max":null,"fmt":"General"}]}];
+const HIDE=new Set(['p20','med','p80','Band','Percentile 0.25 - 70s']);
+function fmtNum(v,f){
+  if(v==null)return'';
+  if(f&&f.includes('%')){const d=(f.split('.')[1]||'').replace(/[^0]/g,'').length;return(v*100).toFixed(d)+'%'}
+  if(f&&f.includes('.')){const d=(f.split('.')[1]||'').replace(/[^0]/g,'').length;return v.toFixed(d)}
+  if(f==='General'||f==null)return Math.abs(v)<100&&v%1!==0?v.toFixed(1):Math.round(v).toString();
+  return Math.round(v).toString()
+}
+function axisFmt(a){let f=a.fmt||'General';if(f==='0%')f='0.0%';return v=>{
+  if(f==='General')return Number.isInteger(v)?v:v.toFixed(1);
+  if(f.includes('%'))return fmtNum(v,f);
+  if(f.startsWith('#,##0')&&!f.includes('.'))return Number.isInteger(v)?v:v.toFixed(1);
+  return fmtNum(v,f==='0'?(Math.abs(v)<100&&v%1!==0?'0.0':'0'):f)}}
+const DASH={sysDash:[5,3],sysDot:[2,3],dash:[6,4]};
+function labelOf(s,cfg,dark,n,ch){
+  const lab={show:true,formatter:p=>fmtNum(p.value,cfg.fmt||s.fmt),color:cfg.fill?'#555':dark,fontSize:11,
+  backgroundColor:cfg.fill?'#'+cfg.fill:'#fff',borderColor:dark,borderWidth:1,padding:[2,4],position:'top',distance:6};
+  const back=n-1-cfg.i;
+  if(s.type==='bar'&&ch.date){lab.offset=back===0?[20,34]:back===1?[-24,42]:[0,38]}
+  else if(s.type==='line'&&ch.date&&back===0){lab.offset=s._dual?[20,0]:[20,-14]}
+  return lab}
+function buildScatter(ch){
+  const f=v=>(v*100).toFixed(0)+'%';
+  const series=ch.series.map(s=>({name:s.name,type:'scatter',symbolSize:s.z?10:7,z:s.z||2,itemStyle:{color:'#'+s.color},data:s.points.map(p=>({value:[p[0],p[1]],month:p[2]}))}));
+  series.push({type:'line',silent:true,data:[],markLine:{silent:true,symbol:['none','arrow'],symbolSize:10,animation:false,
+    data:ch.arrows.map(a=>[{coord:a.from,lineStyle:{color:a.color,width:2,type:'solid'},label:{show:false}},{coord:a.to}]),label:{show:false}}});
+  ch.arrows.forEach(a=>series.push({type:'scatter',silent:true,symbolSize:0,data:[{value:[a.side==='left'?a.from[0]-.002:a.from[0]+.006,a.side==='left'?.065:.0745]}],
+    label:{show:true,formatter:a.text,position:a.side==='left'?'left':'right',color:'#000',fontSize:11}}));
+  return{animation:false,grid:{left:44,right:24,top:18,bottom:58},
+    legend:{data:ch.series.map(s=>s.name),bottom:0,itemWidth:10,itemHeight:10,icon:'circle',textStyle:{color:'#153D64',fontSize:11}},
+    tooltip:{trigger:'item',formatter:p=>p.data.month?p.data.month+'<br>U: '+(p.value[0]*100).toFixed(2)+'%<br>V: '+(p.value[1]*100).toFixed(2)+'%':''},
+    xAxis:{type:'value',min:ch.xMin,max:ch.xMax,interval:.02,axisLabel:{formatter:f,color:'#153D64'},splitLine:{lineStyle:{color:'#d9d9d9'}},axisTick:{show:false}},
+    yAxis:{type:'value',min:0,interval:.01,axisLabel:{formatter:f,color:'#153D64'},splitLine:{lineStyle:{color:'#d9d9d9'}},axisLine:{show:false},axisTick:{show:false}},series}
+}
+function build(ch){
+  if(ch.scatter)return buildScatter(ch);
+  const axes=ch.axes.map((a,i)=>({type:'value',min:a.min,max:a.max,position:i?'right':'left',scale:a.min!=null,boundaryGap:(a.min==null&&a.max==null)?['6%','8%']:undefined,
+    splitLine:{show:!i,lineStyle:{color:'#d9d9d9'}},axisLine:{show:false},axisTick:{show:false},
+    axisLabel:{formatter:axisFmt(a),color:i?'#6ba5d9':'#153D64',fontSize:11,hideOverlap:true}}));
+  const n=(ch.cats||[]).length;
+  const cat={type:'category',data:ch.cats,inverse:ch.horizontal,boundaryGap:true,axisTick:{show:false},
+    axisLine:{onZero:false,lineStyle:{color:'#bfbfbf'}},
+    axisLabel:{color:'#153D64',fontSize:ch.horizontal?10:11,interval:ch.date?(ch._full?(n>150?5:n>100?2:n>60?1:0):(n>150?11:n>100?5:n>60?3:n>30?2:0)):0,rotate:ch.horizontal?0:ch.date?(n>30?90:45):(n>12?45:0),hideOverlap:false,width:ch.date||ch.horizontal?undefined:82,overflow:ch.date||ch.horizontal?undefined:'break'}};
+  const legend=[];
+  const series=ch.series.map(s=>{
+    const dark='#'+(s.color||'153D64');
+    if(s.name&&!HIDE.has(s.name))legend.push(s.name);
+    s._dual=ch.axes.length>1;
+    s.fmt=s.fmt||ch.axes[s.yAxis||0].fmt;
+    const lab=new Map(s.labels.map(l=>[l.i,l]));
+    const data=s.data.map((v,i)=>{
+      if(lab.has(i)&&v!=null)return{value:v,label:labelOf(s,lab.get(i),dark,s.data.length,ch)};
+      return v});
+    const col='#'+(s.color||'A6A6A6');
+    if(s.noline&&s.marker&&s.marker[0]==='dash'&&s.type==='line'){
+      return{name:s.name,type:'scatter',data:data,symbol:'rect',symbolSize:[Math.max(10,560/(n||12)*.55),4],itemStyle:{color:'#'+(s.markerColor||s.color)},yAxisIndex:s.yAxis,z:5}}
+    if(s.type==='bar'){
+      return{name:s.name,type:'bar',stack:s.stack||undefined,data:data,itemStyle:{color:col},barCategoryGap:ch.horizontal?'45%':'65%',barGap:'0%',
+        label:s.show?{show:true,position:'outside',fontSize:11,color:'#153D64',formatter:p=>p.value==null?'':fmtNum(p.value,s.fmt||ch.axes[0].fmt)}:undefined,labelLayout:{hideOverlap:false}}}
+    if(s.type==='area'){
+      return{name:s.name,type:'line',stack:'band',data:data,symbol:'none',lineStyle:{width:0},areaStyle:s.fill?{color:'#'+s.fill,opacity:.8}:{opacity:0},z:1}}
+    const mark=s.marker&&s.marker[0]!=='none'||(!s.marker&&ch.cats&&ch.cats.length===12);
+    return{name:s.name,type:'line',data:data,yAxisIndex:s.yAxis,connectNulls:true,clip:true,
+      symbol:'circle',symbolSize:mark?7:1,showSymbol:true,showAllSymbol:true,
+      lineStyle:{color:col,width:s.width||2.25,type:DASH[s.dash]||'solid'},itemStyle:{color:col},z:s.labels.length?4:3}
+  });
+  return{animation:false,grid:{left:ch.horizontal?205:44,right:ch.axes.length>1?52:44,top:18,bottom:legend.length?(ch.date?(n>30?76:72):(n===11?92:n>12?64:52)):(ch.date?(n>30?54:48):(n>12?44:30)),containLabel:false},
+    legend:legend.length?{data:legend,bottom:0,itemWidth:22,itemHeight:8,icon:undefined,textStyle:{color:'#153D64',fontSize:11}}:undefined,
+    tooltip:{trigger:'axis',valueFormatter:v=>v==null?'':(Math.abs(v)<1&&ch.axes[0].fmt&&ch.axes[0].fmt.includes('%')?(v*100).toFixed(2)+'%':(Math.abs(v)<100?Number(v).toFixed(2):Math.round(v)))},
+    xAxis:ch.horizontal?{...axes[0],position:'top'}:cat,yAxis:ch.horizontal?cat:axes,series}
+}
+const grid=document.getElementById('grid'),insts=[];
+function actions(img,data,cls,imgLabel){
+  const w=document.createElement('div');w.className='act'+(cls?' '+cls:'');
+  const mk=(txt,fn)=>{const b=document.createElement('button');b.type='button';b.textContent=txt;
+    b.onclick=async()=>{let msg='Copiado';try{msg=await fn()||msg}catch(e){msg='Não copiou'}
+      b.textContent=msg;b.classList.add('ok');setTimeout(()=>{b.textContent=txt;b.classList.remove('ok')},1500)};return b};
+  w.append(mk(imgLabel||'Copiar gráfico',img),mk('Copiar dados',data));return w}
+async function copyCanvas(cv,name){
+  const blob=await new Promise(r=>cv.toBlob(r,'image/png'));
+  try{await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);return'Copiado'}
+  catch(e){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(name||'grafico').replace(/[^\w-]+/g,'_')+'.png';a.click();return'Baixado'}}
+function chartImage(c,inst){
+  return new Promise((res,rej)=>{const im=new Image();im.onload=async()=>{
+    const scale=2,head=(c.title[1]?54:32)*scale,cv=document.createElement('canvas');cv.width=im.width;cv.height=im.height+head;
+    const x=cv.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,cv.width,cv.height);x.textAlign='center';x.fillStyle='#153D64';
+    x.font='700 '+16*scale+'px Aptos,Calibri,Arial,sans-serif';x.fillText(c.title[0]||'',cv.width/2,22*scale);
+    if(c.title[1]){x.font='700 '+12*scale+'px Aptos,Calibri,Arial,sans-serif';x.fillText(c.title[1],cv.width/2,42*scale)}
+    x.drawImage(im,0,head);try{res(await copyCanvas(cv,c.title[0]))}catch(e){rej(e)}};im.onerror=rej;
+    im.src=inst.getDataURL({type:'png',pixelRatio:2,backgroundColor:'#fff'})})}
+function cellText(v,f){if(v==null)return'';if(typeof v!=='number')return String(v);
+  return f&&f.includes('%')?(v*100).toFixed(2)+'%':v.toFixed(2)}
+function chartData(c){
+  if(c.scatter){const rows=[['Group','Month','Unemployment rate','Vacancy rate']];
+    c.series.forEach(s=>s.points.forEach(p=>rows.push([s.name,p[2],(p[0]*100).toFixed(2)+'%',(p[1]*100).toFixed(2)+'%'])));
+    return navigator.clipboard.writeText(rows.map(r=>r.join('\t')).join('\n'))}
+  const sers=c.series.filter(s=>!['Band','Percentile 0.25 - 70s'].includes(s.name));
+  const head=[''].concat(sers.map(s=>s.name||c.title[0]));
+  const rows=(c.cats||[]).map((m,i)=>[m].concat(sers.map(s=>{const v=s.data[i];return cellText(v,ch_fmt(c,s))})));
+  return navigator.clipboard.writeText([head].concat(rows).map(r=>r.join('\t')).join('\n'))}
+function ch_fmt(c,s){return c.axes[s.yAxis||0].fmt}
+function tableRows(tb){return[...tb.querySelectorAll('tr')].map(tr=>[...tr.children].flatMap(td=>{const n=+td.getAttribute('colspan')||1;return[td.innerText.replace(/\s+/g,' ').trim(),...Array(n-1).fill('')]}))}
+async function tableImage(tb,title){
+  const r=tb.getBoundingClientRect(),s=2,top=0,cv=document.createElement('canvas');cv.width=r.width*s;cv.height=r.height*s;
+  const x=cv.getContext('2d');x.scale(s,s);x.fillStyle='#fff';x.fillRect(0,0,r.width,r.height);x.textBaseline='middle';
+  tb.querySelectorAll('th,td').forEach(td=>{const b=td.getBoundingClientRect(),st=getComputedStyle(td),X=b.left-r.left,Y=b.top-r.top;
+    if(st.backgroundColor!=='rgba(0, 0, 0, 0)'&&st.backgroundColor!=='transparent'){x.fillStyle=st.backgroundColor;x.fillRect(X,Y,b.width,b.height)}
+    x.fillStyle=st.color;x.font=st.fontStyle+' '+st.fontWeight+' '+st.fontSize+' '+st.fontFamily;x.textAlign=st.textAlign==='left'?'left':'center';
+    const txt=td.innerText.replace(/\s+/g,' ').trim();
+    const room=b.width-6,wid=x.measureText(txt).width;
+    if(wid>room)x.font=st.fontStyle+' '+st.fontWeight+' '+(parseFloat(st.fontSize)*room/wid)+'px '+st.fontFamily;
+    x.fillText(txt,st.textAlign==='left'?X+parseFloat(st.paddingLeft):X+b.width/2,Y+b.height/2)});
+  return copyCanvas(cv,title)}
+document.querySelectorAll('.tw').forEach(w=>{const tb=w.querySelector('table');
+  w.parentNode.insertBefore(actions(()=>tableImage(tb,w.dataset.title),()=>navigator.clipboard.writeText(tableRows(tb).map(r=>r.join('\t')).join('\n')),'tb','Copiar tabela'),w)});
+const rows={};CH.forEach(c=>{(rows[c.row]=rows[c.row]||[]).push(c)});
+CH.forEach((c,idx)=>{
+  if(c.section){const t=document.createElement('h3');t.className='sec';t.textContent=c.section;grid.appendChild(t)}
+  const d=document.createElement('section');d.className='c'+(rows[c.row].length<2?' full':'')+(c.tall?' tall':'');
+  const h=document.createElement('h2');h.textContent=c.title[0]||'';d.appendChild(h);
+  if(c.title[1]){const p=document.createElement('p');p.className='sub';p.textContent=c.title[1];d.appendChild(p)}
+  const e=document.createElement('div');e.className='chart';
+  d.appendChild(actions(()=>chartImage(c,insts[idx]),()=>chartData(c)));
+  d.appendChild(e);grid.appendChild(d);
+  c._full=rows[c.row].length<2;
+  const i=echarts.init(e,null,{renderer:'canvas'});i.setOption(build(c));insts.push(i)});
+addEventListener('resize',()=>insts.forEach(i=>i.resize()));
+const ASOF='2025-Q04';
+async function poll(){try{
+  const st=await fetch('state_productivity.json?t='+Date.now(),{cache:'no-store'}).then(r=>r.json());
+  if(st.as_of!==ASOF){location.replace(location.pathname+'?v='+st.as_of);return}
+  const nx=st.next_release?new Date(st.next_release).getTime():null;
+  document.getElementById('wait').hidden=!(nx&&Date.now()>nx);
+}catch(e){}}
+poll();setInterval(poll,20000);
+</script></body></html>

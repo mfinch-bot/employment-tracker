@@ -273,27 +273,61 @@ def comparison_charts(D):
     return [first, prints, avg]
 
 
-def summary_table(D):
-    S = series(D)
-    as_of = max(S["total"])
-    months = [calc.shift(as_of, -i) for i in range(3, -1, -1)]
-    groups = [("Payroll", [("Nonfarm Payroll", "total"), ("Private", "private"), ("Ex Government & Health", "ex"),
-                           ("Government", "government"), ("Health", "health")]),
-              ("Sector", [(a, a) for a, _ in SECTORS if a != "Government"])]
-    head = "".join(f"<th>{bd.month_label(m)}</th>" for m in months) + "<th>3MMA</th><th>12M avg</th>"
+HEAT_MONTHS = 24
+HEAT_SCALE = 0.25  # variacao mensal, em %, que recebe a cor mais forte
+
+
+def heat_color(pct):
+    """Branco no zero, verde para alta e vermelho para queda, como a escala de cores do Excel."""
+    if pct is None:
+        return "#ffffff"
+    t = min(abs(pct) / HEAT_SCALE, 1)
+    r, g, b = (99, 190, 123) if pct > 0 else (248, 105, 107)
+    return "#%02x%02x%02x" % tuple(round(255 + (c - 255) * t) for c in (r, g, b))
+
+
+def heatmap(D):
+    """Variacao mensal em milhares; a cor vem da variacao em %, para comparar setores de tamanhos diferentes."""
+    months_all = sorted(D["national"])
+    months = months_all[-HEAT_MONTHS:]
+    def level(codes):
+        return {m: sum(D["naics"][c][m][1] for c in codes) for m in months_all}
+    total = {m: D["national"][m][1] for m in months_all}
+    gov, health = level(["92"]), level(["62"])
+    other = level(["11", "99"])
+    private = {m: total[m] - gov[m] - other[m] for m in months_all}
+    ex = {m: total[m] - gov[m] - health[m] for m in months_all}
+    groups = [("Payroll", [("Nonfarm Payroll", total, 0), ("Private", private, 0), ("Ex Government & Health", ex, 0)]),
+              ("Sector", [("Mining and Logging", level(["21"]), 0), ("Construction", level(["23"]), 0),
+                          ("Manufacturing", level(["31-33"]), 0),
+                          ("Trade, Transportation, and Utilities", level(["22", "42", "44-45", "48-49"]), 0),
+                          ("Wholesale Trade", level(["42"]), 1), ("Retail Trade", level(["44-45"]), 1),
+                          ("Transportation and Warehousing", level(["48-49"]), 1), ("Utilities", level(["22"]), 1),
+                          ("Information", level(["51"]), 0), ("Financial Activities", level(["52-53"]), 0),
+                          ("Professional and Business Services", level(["54-56"]), 0),
+                          ("Education and Health Services", level(["61", "62"]), 0),
+                          ("Educational Services", level(["61"]), 1), ("Health Care", health, 1),
+                          ("Leisure and Hospitality", level(["71-72"]), 0), ("Other Services", level(["81"]), 0),
+                          ("Government", gov, 0)])]
+    cell = "padding:3px 1px;font-size:10.5px;"
+    head = "".join(f'<th style="padding:4px 1px;font-size:10px;">{bd.month_label(m)}</th>' for m in months)
     out = []
-    def fmt(v):
-        return "" if v is None else f"{v:.1f}"
     for g, items in groups:
-        out.append(f'<tr class="grp"><td>{g}</td>' + "<td></td>" * 6 + "</tr>")
-        for name, key in items:
-            s = S[key]
-            vals = [s.get(m) for m in months]
-            tds = "".join(f"<td{' class=hi' if key == 'total' and j == 3 else ''}>{fmt(v)}</td>" for j, v in enumerate(vals))
-            last12 = [s.get(calc.shift(as_of, -i)) for i in range(12)]
-            avg12 = None if None in last12 else sum(last12) / 12
-            out.append(f"<tr><td>{name}</td>{tds}<td>{fmt(mma(s, as_of))}</td><td>{fmt(avg12)}</td></tr>")
-    return f'<table class="t1"><thead><tr><th>Monthly change (thousands, SA)</th>{head}</tr></thead><tbody>{"".join(out)}</tbody></table>'
+        out.append(f'<tr class="grp"><td colspan="{len(months) + 1}">{g}</td></tr>')
+        for name, lvl, sub in items:
+            tds = ""
+            for m in months:
+                p = lvl.get(calc.shift(m, -1))
+                v = None if p is None else lvl[m] - p
+                pct = None if not p else v / p * 100
+                text = "" if v is None else f"{v / 1000:.1f}"
+                tds += f'<td style="{cell}background:{heat_color(pct)};">{text}</td>'
+            pad = "padding:3px 4px 3px 16px;" if sub else "padding:3px 4px;"
+            weight = "font-weight:700;" if name == "Nonfarm Payroll" else ""
+            out.append(f'<tr><td style="{pad}font-size:11px;{weight}">{name}</td>{tds}</tr>')
+    title = ('<h2>Payroll by Sector</h2><p class="sub" style="margin-bottom:8px;">(Monthly change, thousands; color by % change)</p>')
+    return (f'{title}<table style="width:100%;"><thead><tr><th style="padding:4px 8px;font-size:11px;"></th>{head}</tr></thead>'
+            f'<tbody>{"".join(out)}</tbody></table>')
 
 
 def render(D, published=None):
@@ -316,9 +350,9 @@ def render(D, published=None):
             else:
                 col = 7
     try:
-        table = summary_table(D)
+        table = heatmap(D)
     except Exception as e:
-        print("tabela ficou de fora:", type(e).__name__, e)
+        print("heatmap ficou de fora:", type(e).__name__, e)
         table = ""
     page = bd.fill_template("Revelio Employment", "revelio", "state_revelio.json", table, "", as_of, published, payload)
     (ROOT / "docs/revelio.html").write_text(page, encoding="utf-8")

@@ -208,7 +208,8 @@ def tight(*series, fmt="0.0"):
     vals = [v for s in series for v in s if v is not None]
     lo, hi = min(vals), max(vals)
     gap = max((hi - lo) * .12, .1)
-    return {"min": round(lo - gap, 1), "max": round(hi + gap, 1), "fmt": fmt}
+    dec = 0 if fmt == "0" else 1
+    return {"min": round(lo - gap, dec), "max": round(hi + gap, dec), "fmt": fmt}
 
 
 def ma_list(values, n):
@@ -231,7 +232,7 @@ def claims_charts(C):
         n = len(ma4)
         b["labels"] = [{"i": n - 1, "fmt": "0", "fill": "FFFF00"}]
         out.append(chart(title, [label_week(w) for w in weeks[-156:]], [b, line("4-week average", ma4, "153D64", fmt="0")], 10 + row * 10,
-                         axes=[{"min": 0, "max": None, "fmt": "0"}]))
+                         axes=[tight(vals[-156:], fmt="0")]))
     def seasonal(key):
         s = C[key]
         last = max(s)

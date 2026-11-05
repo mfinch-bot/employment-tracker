@@ -59,8 +59,9 @@ def parse_report(text_post, pdf_text):
     if not hires or not annual:
         raise ValueError("tabela de contratacoes nao encontrada")
     hire, hire_ytd = num(hires[-1][0]), num(hires[-1][1])
-    if hire_ytd != num(annual[-1]):
-        raise ValueError(f"contratacoes nao batem: {hire_ytd} x {annual[-1]}")
+    # No 4o trimestre tambem ha a tabela de contratacoes sazonais, com o mesmo formato da anual
+    if hire_ytd not in [num(a) for a in annual]:
+        raise ValueError(f"contratacoes nao batem: {hire_ytd} x {annual}")
     h = re.search(r"plans to hire ([\d,]+) workers in " + month, plain)
     if h and num(h.group(1)) != hire:
         raise ValueError(f"contratacoes nao batem com o texto: {hire} x {h.group(1)}")

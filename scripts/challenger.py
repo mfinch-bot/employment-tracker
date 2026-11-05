@@ -8,7 +8,7 @@ import datetime as dt, html, io, json, os, pathlib, re, sys, time, urllib.reques
 from zoneinfo import ZoneInfo
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-import build_dashboard as bd, calc
+import build_dashboard as bd, calc, challenger_detail as detail
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 ET = ZoneInfo("America/New_York")
@@ -68,9 +68,14 @@ def parse_report(text_post, pdf_text):
     return month, cuts, hire, gov_m
 
 
+LAST_PDF = {}
+
+
 def pdf_text(url):
     from pypdf import PdfReader
-    return "\n".join(p.extract_text() or "" for p in PdfReader(io.BytesIO(get(url))).pages)
+    blob = get(url)
+    LAST_PDF["blob"] = blob
+    return "\n".join(p.extract_text() or "" for p in PdfReader(io.BytesIO(blob)).pages)
 
 
 def latest_report(expected=None):
@@ -140,10 +145,86 @@ def charts(data, as_of):
     return out
 
 
+def top(values, n):
+    return [k for k, v in sorted(values.items(), key=lambda kv: -kv[1])[:n]]
+
+
+def hbars(row, col, title, names, series_):
+    return {"row": row, "col": col, "title": [title], "cats": names, "date": False, "horizontal": True, "series": series_,
+            "tall": len(series_) > 2, "axes": [{"min": 0, "max": None, "fmt": "General"}]}
+
+
+def detail_charts(D):
+    """Graficos da abertura. Valores em milhares, como os do topo da pagina."""
+    k = lambda v: None if v is None else v / 1000
+    bar = lambda name, data, color, show=True: {
+        "name": name, "type": "bar", "data": data, "color": color, "fill": color, "dash": None, "width": None, "noline": True,
+        "marker": None, "markerColor": None, "show": show, "labels": [], "fmt": "0.0", "yAxis": 0}
+    out = []
+    Y = D["industry_ytd"]
+    cols, rows = Y["cols"], Y["rows"]
+    month = Y["month"]
+    label = lambda m: bd.month_label(m)
+    names = top({n: v[cols.index(month)] for n, v in rows.items()}, 10)
+    out.append(hbars(25, 1, "Job Cuts by Industry", names,
+                     [bar(label(c), [k(D["industry"][n].get(c)) for n in names], color)
+                      for c, color in zip(reversed([c for c in cols if not c.startswith("YTD")]), ["156082", "A6CAEC", "BFBFBF"])]))
+    ytd = [c for c in cols if c.startswith("YTD")]
+    if len(ytd) == 2:
+        cur, old = sorted(ytd, reverse=True)
+        names = top({n: v[cols.index(cur)] for n, v in rows.items()}, 10)
+        out.append(hbars(45, 1, "Job Cuts by Industry - YTD", names,
+                         [bar(cur[3:], [k(rows[n][cols.index(cur)]) for n in names], "156082"),
+                          bar(old[3:], [k(rows[n][cols.index(old)]) for n in names], "A6CAEC")]))
+        leaders = top({n: v[cols.index(cur)] for n, v in rows.items()}, 5)
+    else:
+        leaders = names[:5]
+    months = sorted({m for s in D["industry"].values() for m in s})
+    palette = ["153D64", "156082", "6BA5D9", "A6CAEC", "3B7D23"]
+    stacked = []
+    for n, color in zip(leaders, palette):
+        b = bar(n, [k(D["industry"][n].get(m, 0)) for m in months], color, show=False)
+        b["stack"] = "total"
+        stacked.append(b)
+    others = bar("Others", [k(sum(s.get(m, 0) for n, s in D["industry"].items() if n not in leaders)) for m in months], "BFBFBF", show=False)
+    others["stack"] = "total"
+    stacked.append(others)
+    out.append({"row": 65, "col": 1, "title": ["Job Cuts by Industry", "(Top 5 YTD and others)"], "cats": [label(m) for m in months],
+                "date": True, "horizontal": False, "series": stacked, "axes": [{"min": 0, "max": None, "fmt": "0"}]})
+    R = D["reason_ytd"]
+    i_m, i_y = R["cols"].index(R["month"]), next(i for i, c in enumerate(R["cols"]) if c.startswith("YTD"))
+    names = top({n: v[i_m] for n, v in R["rows"].items()}, 10)
+    out.append(hbars(85, 1, f"Job Cuts by Reason - {label(R['month'])}", names, [bar(None, [k(R["rows"][n][i_m]) for n in names], "156082")]))
+    names = top({n: v[i_y] for n, v in R["rows"].items()}, 10)
+    out.append(hbars(85, 7, f"Job Cuts by Reason - {R['cols'][i_y][3:]} YTD", names, [bar(None, [k(R["rows"][n][i_y]) for n in names], "156082")]))
+    rm = sorted({m for s in D["reason"].values() for m in s})
+    pair = [("Artificial Intelligence", "C00000"), ("Market/Economic Conditions", "153D64")]
+    out.append({"row": 105, "col": 1, "title": ["Job Cuts by Reason: Artificial Intelligence vs. Market/Economic Conditions"],
+                "cats": [label(m) for m in rm], "date": True, "horizontal": False,
+                "series": [line(n, [k(D["reason"].get(n, {}).get(m, 0)) for m in rm], c, marker=True,
+                                labels=[{"i": len(rm) - 1, "fmt": "0.0", "fill": None}]) for n, c in pair],
+                "axes": [{"min": None, "max": None, "fmt": "0"}]})
+    H = D["hiring_ytd"]
+    ytd = [c for c in H["cols"] if c.startswith("YTD")]
+    if len(ytd) == 2:
+        cur, old = sorted(ytd, reverse=True)
+        i_c, i_o = H["cols"].index(cur), H["cols"].index(old)
+        names = top({n: v[i_c] for n, v in H["rows"].items()}, 10)
+        out.append(hbars(125, 1, "Hiring Offers by Industry - YTD", names,
+                         [bar(cur[3:], [k(H["rows"][n][i_c]) for n in names], "156082"),
+                          bar(old[3:], [k(H["rows"][n][i_o]) for n in names], "A6CAEC")]))
+    return out
+
+
 def render(data, published=None):
     as_of = max(m for m, r in data.items() if r.get("cuts") is not None)
     published = published or dt.datetime.now(BRT)
-    page = bd.fill_template("Challenger Job Cuts", "challenger", "state_challenger.json", "", "", as_of, published, charts(data, as_of))
+    payload = charts(data, as_of)
+    try:
+        payload += detail_charts(detail.load())
+    except Exception as e:  # a abertura nunca atrapalha o headline
+        print("abertura ficou de fora:", type(e).__name__, e)
+    page = bd.fill_template("Challenger Job Cuts", "challenger", "state_challenger.json", "", "", as_of, published, payload)
     (ROOT / "docs/challenger.html").write_text(page, encoding="utf-8")
     json.dump({"as_of": as_of, "published": published.isoformat(timespec="seconds"), "next_release": None},
               open(ROOT / "docs/state_challenger.json", "w"))
@@ -159,9 +240,25 @@ def output(**kv):
     print(kv)
 
 
+def update_detail(month):
+    """Atualiza setores e motivos com o PDF ja baixado. Se nao fechar, o headline sai mesmo assim."""
+    try:
+        D = detail.load()
+        pages = detail.pages_from_pdf(LAST_PDF["blob"])
+        for name, title in (("industry", r"JOB CUTS BY INDUSTRY"), ("reason", r"JOB CUTS BY REASON"), ("hiring", r"HIRING PLANS")):
+            try:
+                detail.merge(D, {name: detail.table(pages, title)}, month)
+            except Exception as e:
+                print(f"tabela {name} ficou de fora:", e)
+        detail.save(D)
+    except Exception as e:
+        print("abertura nao atualizada:", type(e).__name__, e)
+
+
 def publish(data, month, rec, first_seen=None):
     data[month] = rec
     json.dump(dict(sorted(data.items())), open(DATA, "w"), separators=(",", ":"))
+    update_detail(month)
     render(data)
     if first_seen:
         with open(ROOT / "data/log_challenger.jsonl", "a") as f:

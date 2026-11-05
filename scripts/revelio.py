@@ -246,15 +246,15 @@ def comparison_charts(D):
     S = series(D)
     months = sorted(S["total"])[-24:]
     cats = [bd.month_label(m) for m in months]
-    n = len(months)
-    mark = [{"i": n - 1, "fmt": None, "fill": None}]
+    recent = months[-12:]
     first = {"row": 20, "col": 1, "title": ["Revelio: first print vs. current"], "cats": cats, "date": True, "horizontal": False,
              "series": [bars("First print", [V["revelio_first"].get(m) for m in months], "A6CAEC", show=False),
                         bars("Current", [S["total"][m] for m in months], "153D64", show=False)],
              "axes": [{"min": None, "max": None, "fmt": "0"}]}
-    prints = {"row": 21, "col": 1, "title": ["First print: Revelio vs. Payroll"], "cats": cats, "date": True, "horizontal": False,
-              "series": [bars("Revelio", [V["revelio_first"].get(m) for m in months], "156082", show=False),
-                         bars("Payroll", [V["bls_first"].get(m) for m in months], "BFBFBF", show=False)],
+    prints = {"row": 21, "col": 1, "title": ["First print: Revelio vs. Payroll"], "cats": [bd.month_label(m) for m in recent],
+              "date": True, "horizontal": False,
+              "series": [bars("Revelio", [V["revelio_first"].get(m) for m in recent], "156082"),
+                         bars("Payroll", [V["bls_first"].get(m) for m in recent], "BFBFBF")],
               "axes": [{"min": None, "max": None, "fmt": "0"}]}
     def mma_of(s, m):
         vals = [s.get(calc.shift(m, -i)) for i in range(3)]
@@ -312,7 +312,9 @@ def publish(D, month, first_seen=None, site=None):
 def once():
     site = site_release()
     old = load()
-    month = site["month"] if site else (max(old["national"]) if old else None)
+    have = max(old["national"]) if old else None
+    # Nunca volta para um mes anterior, mesmo que o site demore a atualizar
+    month = max(site["month"], have) if site and have else (site["month"] if site else have)
     if month is None:
         print("Nao consegui saber o mes divulgado.")
         output(changed="false")

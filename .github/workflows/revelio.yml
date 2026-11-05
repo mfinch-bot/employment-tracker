@@ -35,8 +35,10 @@ jobs:
         name: Consulta o Revelio e monta a pagina
         env:
           BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+          COMMIT_MSG: ${{ github.event.head_commit.message }}
         run: |
-          if [ "${{ github.event_name }}" = "schedule" ]; then
+          # O agendamento do GitHub nao esta disparando: um commit "Armar ..." deixa o robo esperando a hora oficial
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${COMMIT_MSG#Armar}" != "$COMMIT_MSG" ]; then
             python3 scripts/revelio.py --watch
           else
             python3 scripts/revelio.py --once --force
@@ -44,6 +46,14 @@ jobs:
             python3 scripts/adp.py --once --force
             python3 scripts/jolts.py
           fi
+      - name: Junta com o que saiu enquanto o robo esperava
+        if: steps.run.outputs.changed == 'true'
+        run: |
+          git config user.name "employment-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data docs
+          git commit -m "Revelio $(python3 -c "import json;print(json.load(open('docs/state_revelio.json'))['as_of'])")" || true
+          git pull --rebase origin main
       - uses: actions/upload-pages-artifact@v3
         if: steps.run.outputs.changed == 'true'
         with:
@@ -57,10 +67,6 @@ jobs:
       - name: Guarda os dados
         if: steps.run.outputs.changed == 'true'
         run: |
-          git config user.name "employment-bot"
-          git config user.email "actions@users.noreply.github.com"
-          git add data docs
-          git commit -m "Revelio $(python3 -c "import json;print(json.load(open('docs/state_revelio.json'))['as_of'])")" || exit 0
           git pull --rebase origin main
           git push
       - name: Se a publicacao falhou, tenta de novo com outro commit

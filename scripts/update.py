@@ -117,7 +117,7 @@ def once(key):
 
 def watch(key):
     now = dt.datetime.now(ET)
-    if now.time() < dt.time(8, 0):
+    if now.time() < dt.time(7, 30):
         print("Cedo demais; a proxima rodada assume.")
         output(changed="false")
         return 0
